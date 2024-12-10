@@ -14,12 +14,19 @@
             </div>
         @endif
     
-        <a href="{{ route('texts.create') }}" class="w-44 ml-5 px-4 py-2 bg-blue-700 text-white hover:bg-blue-600 rounded">Crear Nuevo Texto</a>
+        <a href="{{ route('texts.create') }}" class="w-44 ml-5 px-4 py-2 bg-blue-700 text-white hover:bg-blue-600 rounded">
+            Crear Nuevo Texto
+        </a>
     
         <ul class="mt-4">
             @foreach($texts as $text)
-                <li class="border-b border-gray-300 py-2">
-                    <a href="#" class="text-slate-950 dark:text-white">{{ $text->content }}</a>
+                <li class="flex items-center justify-between py-2 px-4 border-b border-gray-300">
+                        <a href="#" class="text-slate-950 dark:text-white">{{ $text->content }}</a>
+
+                        <button type="submit" class="inline-flex px-4 py-2 bg-red-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">
+                            
+                            Delete
+                        </button>
                 </li>
             @endforeach
         </ul>
