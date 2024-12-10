@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="relative h-screen flex text-white rounded">
-    <div class="relative m-auto shadow-2xl w-3/4 bg-emerald-800 p-5 rounded-2xl">
+<div class="relative h-screen text-slate-950 dark:text-white rounded">
+    <div class="relative w-1/4 p-2 mt-12 ml-6 bg-white dark:bg-gray-800 shadow-lg shadow-slate-600 sm:rounded-lg">
         <h1 class="text-2xl font-bold mb-4">Crear Nuevo Texto</h1>
         <form action="{{ route('texts.store') }}" method="POST" class="flex flex-col justify-between h-full shadow-2xl p-2">
             @csrf
@@ -13,8 +13,8 @@
                     <textarea 
                         name="content" 
                         id="content"
-                        rows="4"
-                        class="block w-3/4 m-auto border-gray-500 rounded-md shadow-sm shadow-black focus:ring focus:ring-opacity-80 text-gray-700 resize-y overflow-auto"
+                        rows="1"
+                        class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full"
                         placeholder="Escribe aquí tu texto..."
                         required>
                     </textarea>
@@ -22,7 +22,9 @@
             </div>
             <!-- Botón en la esquina inferior derecha -->
             <div class="text-right">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Crear</button>
+                <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">
+                    Save
+                </button>
             </div>
         </form>
     </div>

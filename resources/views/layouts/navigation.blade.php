@@ -19,10 +19,7 @@
                     <x-nav-link :href="route('texts.index')" :active="request()->routeIs('texts.index')">
                         {{ __('Lista de Textos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('texts.create')" :active="request()->routeIs('texts.create')">
-                        {{ __('Subir Texto') }}
-                    </x-nav-link>
-
+                    
                 </div>
             </div>
 
