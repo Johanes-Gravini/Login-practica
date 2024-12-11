@@ -1,0 +1,117 @@
+/* ------------ ESTILOS PARA El CUERPO ------------ */
+body{
+    font-family: Arial, sans-serif; /* Cambia a 'Times New Roman' si es necesario */
+    font-size: 12px; /* Tamaño de fuente 12px */
+    margin-top: 1in;
+    line-height: 1.5; /* Interlineado de 1.5 (doble espacio) */
+    color: #000; /* Color del texto */
+}
+
+/* ------------ ESTILOS TITULO ------------ */
+.title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ------------ ESTILOS GENERALES PARA EL FORMULARIO TANTO SHECKBOX ------------*/
+.request-info-section{
+    font-weight: bold;
+    width: 100%;
+}
+
+/* ### ESTILOS PARA LOS 3 PRIMEROS CHECKBOX ### */
+.checkbox-container{
+    justify-content: space-between; /* Distribuir el espacio entre elemento */
+    margin-left: -20px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.checkbox-container label {
+    display: inline-block; /* Asegúrate de que el label sea un bloque en línea */
+    margin-right: 49px; /* Espacio entre los checkboxes */
+    vertical-align: middle; /* Alinear verticalmente */
+    line-height: 15px; /* Igualar la altura del checkbox */
+}
+
+.custom-checkbox {
+    width: 15px; /* Ancho del checkbox personalizado */
+    height: 15px; /* Alto del checkbox personalizado */
+    border: 2px solid #000; /* Borde del checkbox */
+    display: inline-block; /* Asegúrate de que se muestre como un bloque en línea */
+    vertical-align: middle; /* Alinear verticalmente */
+}
+
+input[type="checkbox"] {
+    display: inline;
+    display: none;
+}
+
+
+/* ### PRIMER FORMULARIO ### */
+.form-group{
+    width: 85%;
+    height: 200px;
+    font-weight: bold;
+}
+
+/* datos personales */
+.personal-data, .value-discount, .purpose {
+    width: 100%;
+}
+
+.personal-data label, 
+.value-discount label,
+.purpose label {
+    float: left;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.personal-data input, .value-discount input{
+    float: left; /* Flota a la izquierda */
+    padding: 7px; /* Espacio interno en los campos de entrada */
+    border: none; /* Sin borde en los lados y parte superior */
+    border-bottom: 1px solid black; /* Borde inferior negro */
+    background-color: transparent; /* Fondo transparente */
+    outline: none; /* Sin contorno al hacer clic */
+    margin-left: 5px; /* Espacio entre el label y el input */
+    vertical-align: bottom; /* Alinea el input en la parte inferior */
+}
+
+.personal-data #name {
+    width: 56%; /* El input ocupará el 53% del contenedor */
+    margin-left: 7px;
+}
+
+/* valor solicituado y desc sugerido */
+.value-discount, .purpose{
+    clear: both;
+    margin-top: 30px;
+}
+
+.value-discount #value {
+    width: 30%; /* El input ocupará el 30% del contenedor */
+}
+
+/* ### PURPOSE ### */
+.purpose {
+    display: block;
+}
+
+.purpose label {
+    margin-bottom: 5px;
+}
+
+.purpose textarea {
+    display: block;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    margin-left: -1px;
+    resize: none; /* Evita que el usuario cambie el tamaño */
+    border: 1px solid #333; /* Borde simple */
+    padding: 9px;/* Espacio interno para el texto */
+    font-size: 12px; /* Tamaño de fuente legible */
+}

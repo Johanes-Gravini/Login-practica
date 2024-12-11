@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TextController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/texts', [TextController::class, 'index'])->name('texts.index');
     Route::get('/texts/create', [TextController::class, 'create'])->name('texts.create');
     Route::post('/texts', [TextController::class, 'store'])->name('texts.store');
+
+    // ruta pdf
+    Route::get('/pdf', [PdfController::class, 'pdf'])->name('pdf.pdf');
+   
+    Route::get('/formulario', [PdfController::class, 'showForm'])->name('form.show'); // Muestra el formulario
+    Route::post('/formulario', [PdfController::class, 'submitForm'])->name('form.submit'); // Procesa los datos del formulario
 });
 
 // Requiere las ruts de autenticación
