@@ -12,12 +12,23 @@ body {
 }
 
 h2 {
-    width: 100%;
+    width: 98%;
     font-size: 20px;
     color: #f0f0f0;
     text-align: center;
-    background-color: #333;
+    background: hsl(0 0% 0%);
     padding: 0.1em;
+    margin: 25px auto 25px auto;
+}
+
+h3 {
+    width: 100%;
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+    background: hsl(0, 0%, 77%);
+    padding: 0.1em;
+    margin: 20px auto 20px auto;
 }
 
 /* Title styles */
@@ -45,37 +56,48 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Estilos para el contenedor de los radio buttons */
-.radio-container {
-    padding-top: 10px;
-    display: flex; /* Usar flexbox para alinear los radio buttons en línea */
-    justify-content: space-between; /* Espaciado uniforme entre los radio buttons */
-}
-
-/* Estilos para cada label que contiene el radio button */
-.radio-container label {
+/* From Uiverse.io by Admin12121 */ 
+.radio-inputs {
     position: relative;
-    align-items: center; /* Centrar verticalmente */
-    padding: 6px 15px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el label */
-    margin: 15px; /* Espaciado entre los labels */
-    margin-bottom: 30px;
-}
-
-/* Estilo para el radio button al pasar el mouse */
-.radio-container label:hover {
-    background-color: #f0f8ff; /* Color de fondo azul claro al pasar el mouse */
-    border-color: #007BFF; /* Cambiar el color del borde al pasar el mouse */
-}
-
-/* Estilo para el radio button seleccionado */
-.radio-container input[type="radio"]:checked + label {
-    background-color: #007BFF; /* Color de fondo azul */
-    color: white; /* Cambiar el color del texto a blanco */
-}
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 95%;
+    font-size: 14px;
+    margin: auto;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
+                0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+  }
+  
+  .radio-inputs .radio input:checked + .name {
+    background-color: #fff;
+    font-weight: 600;
+  }
 
 /* Form group styles */
 .form-group {
@@ -86,18 +108,18 @@ h2 {
 
 .p-v{
     display: flex; /* Usar flexbox para alinear los contenedores en línea */
+    width: 80%;
+    margin: 20px auto 20px auto;
     justify-content: space-between; /* Espaciado uniforme entre los contenedores */
-    gap: 20px; /* Espacio entre los contenedores */
-    margin: 20px 0; /* Espaciado superior e inferior */
 }
 
 /* Personal data section */
-.personal-data, .value-discount{
+.personal-data, .value-discount, .employee-date, .salary-info{
     display: flex;
     flex-direction: column;
     gap: 10px; /* Espacio entre los elementos */
     padding: 20px;
-    width: 45%;
+    /* width: 45%; */
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
                 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
     border: 1px solid #ccc; /* Borde gris claro */
@@ -106,11 +128,19 @@ h2 {
     border-left: 4px solid #a10606; /* Borde izquierdo azul */
 }
 
-.personal-data label, .value-discount label{
+.personal-data label, 
+.value-discount label, 
+.employee-date label, 
+.salary-info label,
+.label-input-group option {
     font-weight: bold; /* Texto en negrita */
 }
 
-.personal-data input, .value-discount input {
+.personal-data input, 
+.value-discount input, 
+.employee-date input, 
+.salary-info input,
+.payment-status select {
     padding: 5px; /* Espaciado interno */
     max-width: 100%;
     border: 1px solid #ccc; /* Borde gris claro */
@@ -118,7 +148,10 @@ h2 {
     transition: border-color 0.3s; /* Transición suave */
 }
 
-.personal-data input:focus, .value-discount input:focus {
+.personal-data input:focus, 
+.value-discount input:focus, 
+.employee-date input:focus,
+.salary-info input:focus {
     outline: none; /* Sin contorno */
     border-left: 4px solid #007BFF; /* Borde izquierdo azul */
     transition: border-color 0.3s;
@@ -129,6 +162,8 @@ h2 {
 /* Purpose section */
 .purpose {
     display: flex;
+    width: 80%;
+    margin: 15px auto 15px auto;
     flex-direction: column;
     grid-template-columns: auto 1fr;
     gap: 15px;
@@ -161,12 +196,15 @@ h2 {
                 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra externa más pronunciada */
 }
 
+/* --------------------- ESTILOS PARA EL PARRAFO AUTORIZAR ------------------------ */
+
 .authorize p {
+    width: 80%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px; /* Tamaño de fuente */
     line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
     color: #333; /* Color del texto */
-    margin: 15px 0; /* Espaciado superior e inferior */
+    margin: 20px auto 15px auto; /* Espaciado superior e inferior */
     padding: 10px; /* Espaciado interno */
     background-color: #f9f9f9; /* Color de fondo suave */
     border-left: 4px solid #a10606; /* Borde izquierdo azul */
@@ -196,7 +234,60 @@ h2 {
     color: #aaa; /* Color del texto del placeholder */
     opacity: 1; /* Asegurarse de que el placeholder sea visible */
 }
+/* ----------------- EMPLEADO - FECHA e SALARIO INFO ------------------- */
 
+.employee-date, .salary-info{
+    width: 80%;
+    margin: 15px auto 0px auto;
+}
+
+.employee-date input, .salary-info input{
+    width: 50%;
+}
+
+.label-input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* ---------------- FIRMAS ----------------- */
+.signature-date, .payment-signature{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-status select{
+    width: 50%;
+}
+
+.responsible-signature-report, .date, .signature, .payment-status{
+    flex: 1; /* Permite que ambos divs ocupen el mismo espacio */
+    display: flex; /* Habilita el modelo de caja flexible para los inputs */
+    flex-direction: column; /* Alinea el label y el input en columna */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.responsible-signature-report input, .date input, .signature input, .payment-status select {
+    margin: 2px auto 2px auto;
+}
+
+.responsible-signature-report input, .signature input{
+    width: 100%;
+}
+
+.separator {
+    width: 100%; /* O el ancho que desees */
+    height: 4px; /* Grosor de la línea */
+    background: linear-gradient(to right, #b44f44, #061783); /* Gradiente de rojo */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* ---------------- BOTON SUBMIT ------------------ */
 button {
     background-color: #f3f7fe;
     color: #3b82f6;
