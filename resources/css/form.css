@@ -119,7 +119,7 @@ h3 {
     flex-direction: column;
     gap: 10px; /* Espacio entre los elementos */
     padding: 20px;
-    /* width: 45%; */
+    width: 45%;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
                 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
     border: 1px solid #ccc; /* Borde gris claro */
