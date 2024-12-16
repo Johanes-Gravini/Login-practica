@@ -357,22 +357,35 @@ h3 {
 }
 
 /* ---------------- BOTON SUBMIT ------------------ */
+.btn{
+    display: flex;
+    flex-direction: column;
+    margin: 4%;
+    align-items: end;
+}
+
 button {
-    background-color: #f3f7fe;
-    color: #3b82f6;
+    font-size: 20px;
+    background: linear-gradient(to right, #e0887f, #c70b0b); /* Gradiente de rojo */
+    color: #000000;
     border: none;
     cursor: pointer;
     border-radius: 8px;
     width: 100px;
     height: 45px;
     transition: 0.3s;
-  }
+    -webkit-box-shadow: inset 8px 8px 13px -8px rgba(255,255,255,1);
+-moz-box-shadow: inset 8px 8px 13px -8px rgba(255,255,255,1);
+box-shadow: inset 8px 8px 13px -8px rgba(255,255,255,1);
+}
   
-  button:hover {
-    background-color: #3b82f6;
-    box-shadow: 0 0 0 5px #3b83f65f;
+button:hover {
+    background: linear-gradient(to right, #121212, #102ce2);
+    -webkit-box-shadow: inset -10px -11px 13px -7px rgba(0,0,0,1);
+-moz-box-shadow: inset -10px -11px 13px -7px rgba(0,0,0,1);
+box-shadow: inset -10px -11px 13px -7px rgba(0,0,0,1);
     color: #fff;
-  }
+}
 
 /* Responsive design */
 @media (max-width: 768px) {

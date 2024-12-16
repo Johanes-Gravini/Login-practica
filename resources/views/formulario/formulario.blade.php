@@ -205,9 +205,11 @@
               <input type="text" id="input-approved">
               <label for="date-approved">FECHA:</label>
               <input type="date">
-            </div>  
+            </div> 
+            <div class="btn">
+              <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+            </div>
       </div>
-            <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
   </form>
 </body>
 </html>
