@@ -154,7 +154,7 @@
               <div class="label-input-group">
                 <div class="payment-frequency">
                   <label for="">Frecuencia</label>
-                  <select name="" id="">
+                  <select>
                     <option value="quincenales">QUINCELANES</option>
                     <option value="quincenales">MENSUALES</option>
                   </select>

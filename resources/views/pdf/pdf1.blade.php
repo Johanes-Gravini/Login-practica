@@ -127,6 +127,35 @@
 					<input type="text" id="id-approvedamount">
 				</div>
 			</div>
+
+			<div class="subtitle">
+				<u>PARA PAGOS:</u>
+			</div>
+
+			<div class="payment-frequency">
+				<div class="quincenales">
+					<label for="quincenales-label">QUINCENALES:</label>
+					<input type="text" id="id-quincenales">
+				</div>
+				<div class="no-approved">
+					<label for="MENSUALES-label">MENSUALES:</label>
+					<input type="text" id="id-mensuales">
+				</div>
+				<div class="from">
+					<label for="from-label">A PARTIR DE:</label>
+					<input type="text" id="id-from">
+				</div>
+			</div>
+
+			<div class="new-discounts">
+				<label for="new-discounts">
+					<strong>
+						NUEVOS DESCUENTOS:
+					</strong> 
+				</label>
+				<input type="text" id="id-newdiscounts">
+			</div>
+
 		</div>
 	</div>
 </body>

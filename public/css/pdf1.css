@@ -19,6 +19,14 @@ body{
     font-size: 16px;
     text-align: center;
     font-weight: bold;   
+    margin-bottom: 15px;
+}
+
+.subtitle{
+    margin-top: 2em;
+    font-size: 14px;
+    font-weight: bold;
+    clear: both;
 }
 
 /* ------------ ESTILOS GENERALES PARA EL FORMULARIO TANTO SHECKBOX ------------*/
@@ -76,7 +84,8 @@ input[type="checkbox"] {
 .salary-container,
 .responsible-date,
 .status-payments,
-.approved-amount{
+.approved-amount,
+.payment-frequency{
     /* 
     asegura que el elemento se coloque debajo de esos elementos flotantes
      evitando que colisionen visualmente. 
@@ -90,7 +99,8 @@ input[type="checkbox"] {
 .balance-maturity label, 
 .payments-entrydate label,
 .salary-container label,
-.status-payments label{
+.status-payments label, 
+.payment-frequency label{
     margin-bottom: 0;
     line-height: 1.5;
 }
@@ -101,7 +111,8 @@ input[type="checkbox"] {
 .payments-entrydate input, .payments-entrydate label,
 .salary-container input, .salary-container label, 
 .responsible,
-.status-payments input, .status-payments label{
+.status-payments input, .status-payments label,
+.payment-frequency input, .payment-frequency label{
     float: left; /* Flota a la izquierda */
 }
 
@@ -111,7 +122,9 @@ input[type="checkbox"] {
 .payments-entrydate input,
 .salary-container input,
 .responsible-date input,
-.status-payments input{
+.status-payments input, 
+.payment-frequency input, 
+.new-discounts input{
     padding: 7px; /* Espacio interno en los campos de entrada */
     border: none; /* Sin borde en los lados y parte superior */
     border-bottom: 1px solid black; /* Borde inferior negro */
@@ -151,7 +164,12 @@ input[type="checkbox"] {
     width: 28.6%;
 }
 
-.status-payments #id-approved, .status-payments #id-noapproved{
+.new-discounts #id-newdiscounts{
+    width: 50%;
+}
+
+.status-payments #id-approved, .status-payments #id-noapproved,
+.payment-frequency #id-quincenales, .payment-frequency #id-mensuales{
     width: 20px;
     margin-right: 15px;
 }
@@ -198,7 +216,8 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
-.status-payments #id-noapproved{
+.status-payments #id-noapproved,
+.payment-frequency #id-mensuales{
     margin-right: 23%;
 }
 
@@ -206,7 +225,11 @@ input[type="checkbox"] {
     width: 188px;
 }
 
+.payment-frequency #id-from {
+    width: 160px;
+}
 /* CANTIDAD APROBADA */
 .approved-amount {
+    width: 100%;
     margin-top: 30px;
 }
