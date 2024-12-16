@@ -10,7 +10,7 @@ class PdfController extends Controller
     //
     public function pdf()
     {
-        $pdf = Pdf::loadView('pdf.pdf');
+        $pdf = Pdf::loadView('pdf.pdf1');
 
         return $pdf->stream();
     }

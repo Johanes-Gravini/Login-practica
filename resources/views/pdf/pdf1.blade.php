@@ -17,19 +17,19 @@
             <label>
                 <span class="custom-checkbox"></span>
                 <input type="checkbox" id="option1" name="option1" value="value1">
-                SOLICITUD DE PRESTAMO
+                <strong>SOLICITUD DE PRESTAMO</strong>
             </label>
     
             <label>
                 <span class="custom-checkbox"></span>
                 <input type="checkbox" id="option2" name="option2" value="value2">
-                ANTICIPO DE ARRIENDO DE MOTO
+                <strong>ANTICIPO DE ARRIENDO DE MOTO</strong>
             </label>
     
             <label>
                 <span class="custom-checkbox"></span>
                 <input type="checkbox" id="option3" name="option3" value="value3">
-                ANTICIPO SUELDO
+                <strong>ANTICIPO SUELDO</strong>
             </label>
         </div>
 
@@ -54,6 +54,20 @@
             <div class="purpose">
                 <label for="purpose" class="purpose-label">PROPOSITO:</label>
                 <textarea id="purpose" name="purpose" rows="2"></textarea>
+            </div>
+
+            <div class="authorize">
+                <p>
+                    Autorizo a <strong>R.I.B. LOGISTICAS S.A.S</strong>, para descontar de mi salario la cantidad aprobada en ____ partidas, comenzando en la quincena de ____, en caso de que mi contrato fuera cancelado, autorizo a <strong>R.I.B. LOGISTICAS S.A.S</strong>, para descontar el saldo o saldos adeudados, de la liquidación de mis salarios, prestaciones sociales o bonificaciones a que tenga derecho, a la terminación de mi contrato.
+                </p>
+            </div>
+
+            <div class="personal-data">
+                <label for="employee" class="employee-label">EL EMPLEADO:</label>
+                <input type="text" id="employee" name="employee">
+
+                <label for="date" class="date-label">FECHA:</label>
+                <input type="text" id="date" name="date">
             </div>
         </div>
     </div>

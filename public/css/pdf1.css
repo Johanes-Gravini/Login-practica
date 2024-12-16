@@ -17,7 +17,6 @@ body{
 
 /* ------------ ESTILOS GENERALES PARA EL FORMULARIO TANTO SHECKBOX ------------*/
 .request-info-section{
-    font-weight: bold;
     width: 100%;
 }
 
@@ -55,6 +54,9 @@ input[type="checkbox"] {
 .form-group{
     width: 85%;
     height: 200px;
+}
+
+.form-group label {
     font-weight: bold;
 }
 
@@ -82,8 +84,12 @@ input[type="checkbox"] {
     vertical-align: bottom; /* Alinea el input en la parte inferior */
 }
 
-.personal-data #name {
+.personal-data #name, .personal-data #employee{
     width: 56%; /* El input ocupará el 53% del contenedor */
+    margin-left: 7px;
+}
+.personal-data #cc{
+    width: 33%; /* El input ocupará el 53% del contenedor */
     margin-left: 7px;
 }
 
@@ -97,6 +103,10 @@ input[type="checkbox"] {
     width: 30%; /* El input ocupará el 30% del contenedor */
 }
 
+.value-discount #discount {
+    width: 33%;
+    margin-left: 7px;
+}
 /* ### PURPOSE ### */
 .purpose {
     display: block;
@@ -108,10 +118,14 @@ input[type="checkbox"] {
 
 .purpose textarea {
     display: block;
-    width: 100%; /* Ocupa todo el ancho del contenedor */
+    width: 107%; /* Ocupa todo el ancho del contenedor */
     margin-left: -1px;
     resize: none; /* Evita que el usuario cambie el tamaño */
     border: 1px solid #333; /* Borde simple */
     padding: 9px;/* Espacio interno para el texto */
     font-size: 12px; /* Tamaño de fuente legible */
+}
+
+.authorize {
+    width: 110%;
 }
