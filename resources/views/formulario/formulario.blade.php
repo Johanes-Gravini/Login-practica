@@ -88,8 +88,8 @@
             <input type="text" id="balance" name="balance" required>
           </div>
           <div class="label-input-group">
-            <label for="marytiry" class="marytiry-label">Vencimiento:</label>
-            <input type="text" id="marytiry" name="marytiry" required>
+            <label for="maturity" class="maturity-label">Vencimiento:</label>
+            <input type="text" id="maturity" name="maturity" required>
           </div>
           <div class="label-input-group">
             <label for="payments" class="payments-label">Pagos quincenales $:</label>
@@ -116,7 +116,7 @@
 <!-- LA FIRMA PUEDE SER UN SELECCIONAR YA QUE SON POCOS LOS RESPONSABLES DEL INFORME -->
             <div class="responsible-signature-report">
               <label for="responsible-signature-report" class="signature-label">Responsable del Informe</label>
-              <select name="responsible-report" >
+              <select name="responsible-report">
                 <option value="1">PERSONA 1</option>
                 <option value="2">PERSONA 2</option>
                 <option value="3">PERSONA 3</option>
