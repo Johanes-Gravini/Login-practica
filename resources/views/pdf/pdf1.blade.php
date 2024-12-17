@@ -156,6 +156,38 @@
 				<input type="text" id="id-newdiscounts">
 			</div>
 
+			<!-- tabla de 3 columnas 4 filas -->
+            <div class="table-container">
+              <table class="table">
+                <tr>
+                  <th class="table-header-title-sup">LIBRANZAS</th>
+                  <th class="table-header-title-sup">CUOTA MENSUAL</th>
+                  <th class="table-header-title-sup">SALDO</th>
+                </tr>
+                <tr>
+                  <th class="table-header-title">COMFENALCO</th>
+                  <th class="table-header">$<input type="text" id="input-table-22" name="input-table"></th>
+                  <th class="table-header"><input type="text" id="input-table-23" name="input-table"></th>
+                </tr>
+                <tr>
+                  <th class="table-header-title">COMBARRANQUILLA</th>
+                  <th class="table-header">$<input type="text" id="input-table-32" name="input-table"></th>
+                  <th class="table-header"><input type="text" id="input-table-33" name="input-table"></th>
+                </tr>
+                <tr>
+                  <th class="table-header-title">OTROS</th>
+                  <th class="table-header">$<input type="text" id="input-table-42" name="input-table"></th>
+                  <th class="table-header"><input type="text" id="input-table-43" name="input-table"></th>
+                </tr>
+              </table>
+            </div>
+
+			<div class="final-container">
+              <label for="approved-by">APROBADO POR:</label>
+              <input type="text" id="input-approved">
+              <label for="date-approved">FECHA:</label>
+              <input type="date" id="input-data-approved">
+            </div> 
 		</div>
 	</div>
 </body>
