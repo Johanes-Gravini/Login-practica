@@ -36,19 +36,19 @@
 		<!-- PRIMER FORMULARIO -->
 		<div class="form-group">
 			<div class="personal-data">
-				<label for="name" class="name-label">NOMBRE:</label>
-				<input type="text" id="name" name="name">
+				<label for="name" class="name-label" id="name-label-fl">NOMBRE:</label>
+				<input type="text" id="id-name-fl" name="name">
 
-				<label for="cc" class="cc-label">C.C:</label>
+				<label for="cc" class="cc-label" id="name-fl">C.C:</label>
 				<input type="text" id="cc" name="cc">
 			</div>
 
 			<div class="value-discount">
-				<label for="value" class="value-label">VALOR SOLICITUADO:</label>
-				<input type="text" id="value" name="value">
+				<label for="value" class="value-label" id="value-label-fl">VALOR SOLICITUADO:</label>
+				<input type="text" id="id-value-fl" name="value">
 
-				<label for="discount" class="discount-label">DESC. SUGERIDO:</label>
-				<input type="text" id="discount" name="discount">
+				<label for="discount" class="discount-label" id="discount-label-fl">DESC. SUGERIDO:</label>
+				<input type="text" id="id-discount-fl" name="discount">
 			</div>
 
 			<div class="purpose">
@@ -63,11 +63,11 @@
 			</div>
 
 			<div class="personal-data">
-				<label for="employee" class="employee-label">EL EMPLEADO:</label>
-				<input type="text" id="employee" name="employee">
+				<label for="employee" class="employee-label" id="employee-label-fl">EL EMPLEADO:</label>
+				<input type="text" id="id-employee-fl" name="employee">
 
-				<label for="date" class="date-label">FECHA:</label>
-				<input type="text" id="date" name="date">
+				<label for="date" class="date-label" id="date-label-fl">FECHA:</label>
+				<input type="text" id="id-date-fl" name="date">
 			</div>
 		</div>
 
@@ -77,54 +77,54 @@
 
 		<!-- SEGUNDO FORMULARIO -->
 		<div class="form-group-2">
-			<div class="balance-maturity">
-				<label for="balance" class="balance-label">Saldo a cargo del Empleado $:</label>
-				<input type="text" id="balance" name="balance" required>
+			<div class="balance-maturity-content">
+				<label for="balance" class="balance-label" id="balance-label-fl">Saldo a cargo del Empleado $:</label>
+				<input type="text" id="id-balance-fl" name="balance" required>
 
-				<label for="maturity" class="maturity-label">Vencimiento:</label>
-				<input type="text" id="maturity" name="maturity" required>
+				<label for="maturity" class="maturity-label" id="maturity-label-fl">Vencimiento:</label>
+				<input type="text" id="id-maturity-fl" name="maturity" required>
 			</div>
 
-			<div class="payments-entrydate">
-				<label for="payments" class="payments-label">Pagos quincenales $:</label>
-				<input type="text" id="payments" name="payments" required>
+			<div class="payments-entrydate-content">
+				<label for="payments" class="payments-label" id="payments-label-fl">Pagos quincenales $:</label>
+				<input type="text" id="id-payments-fl" name="payments" required>
 
-				<label for="entrydate" class="entrydate-label">Fecha de Entrada:</label>
-				<input type="date" id="entrydate" name="entrydate" required>
+				<label for="entrydate" class="entrydate-label" id="entrydate-label-fl">Fecha de Entrada:</label>
+				<input type="date" id="id-entrydate-fl" name="entrydate" required>
 			</div>
 
-			<div class="salary-container">
-				<label for="salary" class="salary-label">Salario $:</label>
-				<input type="text" id="salary" name="salary" required>
+			<div class="salary-container-content">
+				<label for="salary" class="salary-label" id="salary-label-fl">Salario $:</label>
+				<input type="text" id="id-salary-fl" name="salary" required>
 			</div>
 
-			<div class="responsible-date"> 
+			<div class="responsible-date-content"> 
 				<div class="responsible"> 
 					<label for="responsible" class="responsible-report">Responsable del Informe</label>
 				</div>
 				<div class="date">
-					<label for="date" class="date-responsible-label">Fecha</label>
-					<input type="date" id="date" name="date" required>
+					<label for="date" class="date-responsible-label" id="date-responsible-label-fl">Fecha</label>
+					<input type="date" id="id-date-fl" name="date" required>
 				</div>
 			</div>
 
-			<div class="status-payments">
+			<div class="status-payments-content">
 				<div class="approved">
-					<label for="approved-label">APROBADO:</label>
-					<input type="text" id="id-approved">
+					<label for="approved-label" id="approved-label-fl">APROBADO:</label>
+					<input type="text" id="id-approved-fl-x">
 				</div>
 				<div class="no-approved">
-					<label for="noapproved-label">NO APROBADO:</label>
-					<input type="text" id="id-noapproved">
+					<label for="noapproved-label" id="noapproved-label-fl">NO APROBADO:</label>
+					<input type="text" id="id-noapproved-fl-x">
 				</div>
 				<div class="signature">
-					<label for="approved-label">FIRMA:</label>
-					<input type="text" id="id-signature">
+					<label for="approved-label" id="approvedfirma-label-fl">FIRMA:</label>
+					<input type="text" id="id-signature-fl">
 				</div>
 
-				<div class="approved-amount">
-					<label for="approved-amount">CANTIDAD APROBADA:</label>
-					<input type="text" id="id-approvedamount">
+				<div class="approved-amount-content">
+					<label for="approved-amount" id="approvedamount-label-fl">CANTIDAD APROBADA:</label>
+					<input type="text" id="id-approvedamount-fl">
 				</div>
 			</div>
 
@@ -132,18 +132,18 @@
 				<u>PARA PAGOS:</u>
 			</div>
 
-			<div class="payment-frequency">
+			<div class="payment-frequency-content">
 				<div class="quincenales">
-					<label for="quincenales-label">QUINCENALES:</label>
-					<input type="text" id="id-quincenales">
+					<label for="quincenales-label" id="quincenales-label-fl">QUINCENALES:</label>
+					<input type="text" id="id-quincenales-fl-x">
 				</div>
 				<div class="no-approved">
-					<label for="MENSUALES-label">MENSUALES:</label>
-					<input type="text" id="id-mensuales">
+					<label for="mensuales-label" id="mensuales-label-fl">MENSUALES:</label>
+					<input type="text" id="id-mensuales-fl-x">
 				</div>
 				<div class="from">
-					<label for="from-label">A PARTIR DE:</label>
-					<input type="text" id="id-from">
+					<label for="from-label" id="from-label-fl">A PARTIR DE:</label>
+					<input type="text" id="id-from-fl">
 				</div>
 			</div>
 
@@ -157,7 +157,7 @@
 			</div>
 
 			<!-- tabla de 3 columnas 4 filas -->
-            <div class="table-container">
+            <div class="table-container-content">
               <table class="table">
                 <tr>
                   <th class="table-header-title-sup">LIBRANZAS</th>
@@ -182,11 +182,11 @@
               </table>
             </div>
 
-			<div class="final-container">
-              <label for="approved-by">APROBADO POR:</label>
-              <input type="text" id="input-approved">
-              <label for="date-approved">FECHA:</label>
-              <input type="date" id="input-data-approved">
+			<div class="final-container-content">
+              <label for="approved-by" id="approvedby-label-fl">APROBADO POR:</label>
+              <input type="text" id="input-approved-fl">
+              <label for="date-approved" id="dateapproved-label-fl">FECHA:</label>
+              <input type="date" id="input-data-approved-fl">
             </div> 
 		</div>
 	</div>
