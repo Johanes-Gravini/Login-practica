@@ -27,10 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/texts', [TextController::class, 'store'])->name('texts.store');
 
     // ruta pdf
-    Route::get('/pdf', [PdfController::class, 'pdf'])->name('pdf.pdf');
-   
+    
     Route::get('/formulario', [PdfController::class, 'showForm'])->name('form.show'); // Muestra el formulario
-    Route::post('/formulario', [PdfController::class, 'submitForm'])->name('form.submit'); // Procesa los datos del formulario
+    Route::post('/formulario/submit', [PdfController::class, 'submitForm'])->name('form.submit'); // Procesa los datos del formulario
+    Route::get('/pdf', [PdfController::class, 'pdf'])->name('pdf.pdf');
 });
 
 // Requiere las ruts de autenticación

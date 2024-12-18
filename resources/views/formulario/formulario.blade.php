@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/form.css">
+  <!-- <link rel="stylesheet" href="../../css/form.css"> -->
   <title>PRESTAMOS RIB SUELDO</title>
   @vite('resources/css/form.css')
 </head>
@@ -11,27 +11,53 @@
   <div class="title">
       <u>R.I.B LOGISTICAS S.A.S</u>
   </div>
-  
-  <form action="tu_url_de_envio" method="POST"> <!-- Agrega la etiqueta form -->
+  <!-- Mostrar mensaje de éxito -->
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
+
+  <!-- Mostrar mensaje de error NO FUNCIONA POR AHORA JASDFJASDF -->
+  @if(session('error'))
+    <div class="alert alert-error">
+        {{ session('error') }}
+    </div>
+  @endif
+  <!-- Mostrar errores de validación -->
+  <!-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif -->
+
+  <form action="{{ route('form.submit') }}" method="POST">
+    @csrf
     <div class="request-info-section">
 
       <h2>DATOS</h2>
       <!-- 3 CHECKBOX DEL INICIO -->
       <div class="radio-inputs">
         <label class="radio">
-          <input type="radio" name="radio" checked="">
-          <span class="name">Solicitud de Prestamo</span>
+            <input type="radio" name="options" value="solicitud_prestamo" {{ old('options') == 'solicitud_prestamo' ? 'checked' : '' }}>
+            <span class="name">Solicitud de Préstamo</span>
         </label>
         <label class="radio">
-          <input type="radio" name="radio">
-          <span class="name">Anticipo Arriendo de Moto</span>
+            <input type="radio" name="options" value="anticipo_arriendo_moto" {{ old('options') == 'anticipo_arriendo_moto' ? 'checked' : '' }}>
+            <span class="name">Anticipo Arriendo de Moto</span>
         </label>
-            
         <label class="radio">
-          <input type="radio" name="radio">
-          <span class="name">Anticipo Sueldo</span>
+            <input type="radio" name="options" value="anticipo_sueldo" {{ old('options') == 'anticipo_sueldo' ? 'checked' : '' }}>
+            <span class="name">Anticipo Sueldo</span>
         </label>
       </div>
+      @error('options')
+        <div class="error-message">{{ $message }}</div>
+      @enderror
 
       <!-- PRIMER FORMULARIO -->
       <div class="form-group">
@@ -39,25 +65,40 @@
           <div class="p-v">
             <div class="personal-data">
               <label for="name" class="name-label">NOMBRE:</label>
-              <input type="text" id="name" name="name" required>
-              
+              <input type="text" id="name" name="name" required value="{{ old('name') }}">
+              @error('name')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
+
               <label for="cc" class="cc-label">C.C:</label>
-              <input type="text" id="cc" name="cc" required>
+              <input type="text" id="cc" name="cc" required value="{{ old('cc') }}">
+              @error('cc')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
             </div>
             
             <div class="value-discount">
               <label for="value" class="value-label">VALOR SOLICITADO:</label>
-              <input type="text" id="value" name="value" required>
-              
+              <input type="text" id="value" name="value" required value="{{ old('value') }}">
+              @error('value')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
+
               <label for="discount" class="discount-label">DESC. SUGERIDO:</label>
-              <input type="text" id="discount" name="discount">
+              <input type="text" id="discount" name="discount" value="{{ old('discount') }}">
+              @error('discount')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
             </div>
           </div>
           
           <!-- <h2 class=title-purpose>PROPOSITO</h2> -->
           <h3>PROPOSITO</h3>
           <div class="purpose">
-              <textarea id="purpose" name="purpose" rows="2" placeholder="Escriba el proposito..."required></textarea>
+              <textarea id="purpose" name="purpose" rows="2" placeholder="Escriba el propósito..." required>{{ old('purpose') }}</textarea>
+              @error('purpose')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
           </div>
           
           <div class="authorize">
@@ -69,13 +110,19 @@
           <div class="employee-date">
               <!-- <h2>EMPLEADO - FECHA</h2> -->
               <div class="label-input-group">
-                  <label for="employee" class="employee-label">EL EMPLEADO:</label>
-                  <input type="text" id="employee" name="employee" required>
+                <label for="employee" class="employee-label">EL EMPLEADO:</label>
+                <input type="text" id="employee" name="employee" required value="{{ old('employee') }}">
               </div>
+              @error('employee')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
 
               <div class="label-input-group">
                   <label for="date" class="date-label">FECHA:</label>
-                  <input type="date" id="date" name="date" required>
+                  <input type="date" id="date" name="date" required value="{{ old('date') }}">
+                  @error('date')
+                    <div class="error-message">{{ $message }}</div>
+                  @enderror
               </div>
           </div>
       </div>
@@ -85,23 +132,23 @@
         <div class="salary-info">
           <div class="label-input-group">
             <label for="balance" class="balance-label">Saldo a cargo del Empleado $:</label>
-            <input type="text" id="balance" name="balance" required>
+            <input type="text" id="balance" name="balance" required disabled>
           </div>
           <div class="label-input-group">
             <label for="maturity" class="maturity-label">Vencimiento:</label>
-            <input type="text" id="maturity" name="maturity" required>
+            <input type="text" id="maturity" name="maturity" required disabled>
           </div>
           <div class="label-input-group">
             <label for="payments" class="payments-label">Pagos quincenales $:</label>
-            <input type="text" id="payments" name="payments" required>
+            <input type="text" id="payments" name="payments" required disabled>
           </div>
           <div class="label-input-group">
             <label for="entrydate" class="entrydate-label">Fecha de Entrada:</label>
-            <input type="date" id="entrydate" name="entrydate" required>
+            <input type="date" id="entrydate" name="entrydate" required disabled>
           </div>
           <div class="label-input-group">
             <label for="salary" class="salary-label">Salario $:</label>
-            <input type="text" id="salary" name="salary" required>
+            <input type="text" id="salary" name="salary" required disabled>
         </div>
 
           <!-- <div class="separator"></div> -->
@@ -110,13 +157,13 @@
             <div class="date">
 <!-- FECHA EN LA QUE SE LLENÓ ESTE SEGUNDO INFORME -->
               <label for="date" class="datesignature-label">Fecha</label>
-              <input type="date" id="date" name="date" required>
+              <input type="date" id="date" name="date" required disabled>
             </div>
 
 <!-- LA FIRMA PUEDE SER UN SELECCIONAR YA QUE SON POCOS LOS RESPONSABLES DEL INFORME -->
             <div class="responsible-signature-report">
               <label for="responsible-signature-report" class="signature-label">Responsable del Informe</label>
-              <select name="responsible-report">
+              <select name="responsible-report" disabled>
                 <option value="1">PERSONA 1</option>
                 <option value="2">PERSONA 2</option>
                 <option value="3">PERSONA 3</option>
@@ -132,20 +179,20 @@
           <div class="payment-signature">
             <div class="payment-status">
               <label for="payment-status" class="payment-status-label">Estado del Pago:</label>
-              <select name="payment-status" id="payment-status">
+              <select name="payment-status" id="payment-status" disabled>
                 <option value="approved">APROBADO</option>
                 <option value="no-aprovend">NO APROBADO</option>
               </select>
             </div>
             <div class="signature">
                 <label for="signature" class="signature-label">Firma</label>
-                <input type="text" id="signature" name="signature" required>
+                <input type="text" id="signature" name="signature" required disabled>
             </div>
           </div>
 
             <div class="label-input-group">
               <label for="approved-amount" class="approvedamount-label">Cantidad Aprobada $:</label>
-              <input type="text" id="approved-amount" name="approved-amount" required>
+              <input type="text" id="approved-amount" name="approved-amount" required disabled>
             </div>
 
             <h3>PARA PAGOS</h3>
@@ -154,16 +201,16 @@
               <div class="label-input-group">
                 <div class="payment-frequency">
                   <label for="">Frecuencia</label>
-                  <select>
+                  <select disabled>
                     <option value="quincenales">QUINCELANES</option>
-                    <option value="quincenales">MENSUALES</option>
+                    <option value="mensuales">MENSUALES</option>
                   </select>
                 </div>
                 <!-- <label for="quincena" class="quincena-label">:</label> -->
                 <!-- <input type="text" id="quincena" name="quincena" required> -->
                 <div class="date">
                   <label for="from" class="from-label">A partir de:</label>
-                  <input type="date" id="from" name="from" required>
+                  <input type="date" id="from" name="from" required disabled>
                 </div>
               </div>
         </div>
@@ -172,7 +219,7 @@
 
             <div class="label-input-group">
               <label for="new-discounts" class="new-discounts-label">Nuevos decuentos:</label>
-              <input type="text" id="new-discounts" name="new-discounts" required>
+              <input type="text" id="new-discounts" name="new-discounts" required disabled>
             </div>
             
             <!-- tabla de 3 columnas 4 filas -->
@@ -185,31 +232,32 @@
                 </tr>
                 <tr>
                   <th class="table-header-title">COMFENALCO</th>
-                  <th class="table-header"><input type="text" id="input-table-22" name="input-table"></th>
-                  <th class="table-header"><input type="text" id="input-table-23" name="input-table"></th>
+                  <th class="table-header"><input type="text" id="input-table-22" name="input-table" disabled></th>
+                  <th class="table-header"><input type="text" id="input-table-23" name="input-table" disabled></th>
                 </tr>
                 <tr>
                   <th class="table-header-title">COMBARRANQUILLA</th>
-                  <th class="table-header"><input type="text" id="input-table-32" name="input-table"></th>
-                  <th class="table-header"><input type="text" id="input-table-33" name="input-table"></th>
+                  <th class="table-header"><input type="text" id="input-table-32" name="input-table" disabled></th>
+                  <th class="table-header"><input type="text" id="input-table-33" name="input-table" disabled></th>
                 </tr>
                 <tr>
                   <th class="table-header-title">OTROS</th>
-                  <th class="table-header"><input type="text" id="input-table-42" name="input-table"></th>
-                  <th class="table-header"><input type="text" id="input-table-43" name="input-table"></th>
+                  <th class="table-header"><input type="text" id="input-table-42" name="input-table" disabled></th>
+                  <th class="table-header"><input type="text" id="input-table-43" name="input-table" disabled></th>
                 </tr>
               </table>
             </div>
             <div class="final-container">
               <label for="approved-by">APROBADO POR:</label>
-              <input type="text" id="input-approved">
+              <input type="text" id="input-approved" disabled>
+
               <label for="date-approved">FECHA:</label>
-              <input type="date">
+              <input type="date" disabled>
             </div> 
-            <div class="btn">
-              <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
-            </div>
-      </div>
+          </div>
+          <div class="btn">
+            <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+          </div>
   </form>
 </body>
 </html>

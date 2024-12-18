@@ -16,19 +16,19 @@
 		<div class="checkbox-container">
 			<label>
 				<span class="custom-checkbox"></span>
-				<input type="checkbox" id="option1" name="option1" value="value1">
+				<input type="checkbox" id="option1" name="options[]" value="value1">
 				<strong>SOLICITUD DE PRESTAMO</strong>
 			</label>
 	
 			<label>
 				<span class="custom-checkbox"></span>
-				<input type="checkbox" id="option2" name="option2" value="value2">
+				<input type="checkbox" id="option2" name="options[]" value="value2">
 				<strong>ANTICIPO DE ARRIENDO DE MOTO</strong>
 			</label>
 	
 			<label>
 				<span class="custom-checkbox"></span>
-				<input type="checkbox" id="option3" name="option3" value="value3">
+				<input type="checkbox" id="option3" name="options[]" value="value3">
 				<strong>ANTICIPO SUELDO</strong>
 			</label>
 		</div>
