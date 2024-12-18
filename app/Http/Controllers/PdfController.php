@@ -63,6 +63,7 @@ class PdfController extends Controller
             return redirect()->route('form.show')->with('success', 'Formulario enviado correctamente');
         } catch (ValidationException $e) {
             return redirect()->route('form.show')
+                            ->with('error', 'Se han ingresado datos invalidos')
                             ->withErrors($e->errors()) // errors solo funciona con ValidationException
                             ->withInput(); // mantiene el input anterior
 
