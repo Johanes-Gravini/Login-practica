@@ -37,22 +37,22 @@
 
   <form action="{{ route('form.submit') }}" method="POST">
     @csrf
-    <div class="request-info-section">
+    <div class="request-info-section br">
 
       <h2>DATOS</h2>
       <!-- 3 CHECKBOX DEL INICIO -->
-      <div class="radio-inputs-section">
-        <label class="radio">
+      <div class="radio-inputs-section flx br">
+        <label class="radio br">
             <input type="radio" name="options" value="solicitud_prestamo" {{ old('options') == 'solicitud_prestamo' ? 'checked' : '' }}>
-            <span class="name">Solicitud de Préstamo</span>
+            <span class="name br">Solicitud de Préstamo</span>
         </label>
-        <label class="radio">
+        <label class="radio br">
             <input type="radio" name="options" value="anticipo_arriendo_moto" {{ old('options') == 'anticipo_arriendo_moto' ? 'checked' : '' }}>
-            <span class="name">Anticipo Arriendo de Moto</span>
+            <span class="name br">Anticipo Arriendo de Moto</span>
         </label>
-        <label class="radio">
+        <label class="radio br">
             <input type="radio" name="options" value="anticipo_sueldo" {{ old('options') == 'anticipo_sueldo' ? 'checked' : '' }}>
-            <span class="name">Anticipo Sueldo</span>
+            <span class="name br">Anticipo Sueldo</span>
         </label>
       </div>
       @error('options')
@@ -61,10 +61,10 @@
       @enderror
 
       <!-- PRIMER FORMULARIO -->
-      <div class="form-group">
+      <div class="form-group br">
           <!-- <h2 class="title-data">DATOS</h2> -->
           <div class="p-v-section flx">
-            <div class="personal-data flx">
+            <div class="personal-data flx br">
               <label for="name" class="name-label">NOMBRE:</label>
               <input type="text" id="name" name="name" required value="{{ old('name') }}">
               @error('name')
@@ -80,7 +80,7 @@
               </div>
             </div>
             
-            <div class="value-discount flx">
+            <div class="value-discount flx br">
               <label for="value" class="value-label">VALOR SOLICITADO:</label>
               <input type="number" id="value" name="value" required value="{{ old('value') }}">
               @error('value')
@@ -100,7 +100,7 @@
           <!-- <h2 class=title-purpose>PROPOSITO</h2> -->
           <h3>PROPOSITO</h3>
           <div class="purpose-section flx">
-              <textarea id="purpose" name="purpose" rows="2" placeholder="Escriba el propósito..." required>{{ old('purpose') }}</textarea>
+              <textarea class="br" id="purpose" name="purpose" rows="2" placeholder="Escriba el propósito..." required>{{ old('purpose') }}</textarea>
               @error('purpose')
                 <div class="error-message">{{ $message }}</div>
               @enderror
@@ -108,11 +108,11 @@
           
           <div class="authorize-section">
               <!-- <h2 class=title-authorize>AUTORIZAR</h2> -->
-              <p>Autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar de mi salario la cantidad aprobada en: <input type="text" id="partidas" name="partidas"> partidas, comenzando en la quincena de <input type="text" id="quincena" name="quincena">, en caso de que mi contrato fuera cancelado, autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar el saldo o saldos adeudados, de la liquidación de mis salarios, prestaciones sociales o bonificaciones a que tenga derecho, a la terminación de mi contrato.
+              <p class="br">Autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar de mi salario la cantidad aprobada en: <input type="text" id="partidas" name="partidas"> partidas, comenzando en la quincena de <input type="text" id="quincena" name="quincena">, en caso de que mi contrato fuera cancelado, autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar el saldo o saldos adeudados, de la liquidación de mis salarios, prestaciones sociales o bonificaciones a que tenga derecho, a la terminación de mi contrato.
               </p>
           </div>
           <div class="separator"></div>
-          <div class="employee-date-section flx">
+          <div class="employee-date-section flx br">
               <!-- <h2>EMPLEADO - FECHA</h2> -->
               <div class="label-input-group flx">
                 <label for="employee" class="employee-label">EL EMPLEADO:</label>
@@ -133,8 +133,8 @@
       </div>
 
       <h2>PARA USO DE LA EMPRESA</h2>
-      <div class="form-group-2">
-        <div class="salary-info-section flx">
+      <div class="form-group-2 br">
+        <div class="salary-info-section flx br">
           <div class="label-input-group flx">
             <label for="balance" class="balance-label">Saldo a cargo del Empleado $:</label>
             <input type="text" id="balance" name="balance" required disabled>
@@ -180,7 +180,7 @@
 
         <div class="separator"></div>
   <!-- SEGUNDA FIRMA PARA EL QUE APROBÓ O NO -->
-        <div class="signature-frequency-content-section flx">
+        <div class="signature-frequency-content-section flx br">
           <div class="payment-signature flx">
             <div class="payment-status flx">
               <label for="payment-status" class="payment-status-label">Estado del Pago:</label>
@@ -228,7 +228,7 @@
             </div>
             
             <!-- tabla de 3 columnas 4 filas -->
-            <div class="table-container-section">
+            <div class="table-container-section br">
               <table class="table-section">
                 <tr>
                   <th class="table-header-title-sup">LIBRANZAS</th>
@@ -252,7 +252,7 @@
                 </tr>
               </table>
             </div>
-            <div class="final-container-section flx">
+            <div class="final-container-section flx br">
               <label for="approved-by">APROBADO POR:</label>
               <input type="text" id="input-approved" disabled>
 
@@ -260,7 +260,7 @@
               <input type="date" disabled>
             </div> 
           </div>
-          <div class="btn">
+          <div class="btn br">
             <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
           </div>
   </form>
