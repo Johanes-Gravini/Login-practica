@@ -1,81 +1,48 @@
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+/* ----------------------------- ESTILOS GENERALES ------------------------------ */
+*   { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body{ background-color: #f5f5f5; padding: 20px; min-width: 825px;}
 
-body {
-    background-color: #f5f5f5;
-    padding: 20px;
-}
+.request-info-section { 
+    max-width: 900px; 
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
 
-h2 {
-    width: 98%;
-    font-size: 20px;
-    color: #f0f0f0;
-    text-align: center;
-    background: hsl(0 0% 0%);
-    padding: 0.1em;
-    margin: 25px auto 25px auto;
-}
-
-h3 {
-    width: 100%;
-    font-size: 15px;
-    color: #000000;
-    text-align: center;
-    background: hsl(0, 0%, 77%);
-    padding: 0.1em;
-    margin: 20px auto 20px auto;
-}
+.form-group-2,
+.form-group { width: 80%; margin: 15px auto 0px auto; }
 
 .form-group-2, .form-group{
-    width: 80%;
-    margin: 15px auto 0px auto;
-}
-
-.radio-inputs, 
-.p-v, .purpose, 
-.authorize, 
-.employee-date, 
-.table-container,
-.request-info-section,
-.salary-info,
-.signature-frequency-content,
-.table {
-    width: 95%;
-    margin: 15px auto 15px auto;
-}
-
-/* Title styles */
-.title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #333;
-    padding: 10px;
-}
-
-.title u {
-    padding-bottom: 5px;
-    text-decoration: none;
-    border-bottom: 2px solid #333;
-}
-
-/* Request info section */
-.request-info-section {
-    max-width: 900px;
-    background-color: white;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los elementos */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
+                0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+    border-left: 4px solid #a10606; /* Borde izquierdo ROJO */
 }
+
+/* display flex */
+div[class*="form"],
+div[class*="flx"]{
+    display: flex;
+}
+
+/* ------------------------------ TITULOS  ------------------------------ */
+.title       { font-weight: bold; }
+
+h2, .title,
+h3  { width: 100%; font-size: 20px; text-align: center; padding: 0.1em; margin: 10px auto 0px auto; }
+h2  { color: #f0f0f0; background: hsl(0 0% 0%); }
+h3  { color: #000000; background: hsl(0, 0%, 77%); }
+
+/* ------------------------------ TAMAÑO SE LAS SECCIONES GENERALES ------------------------------ */
+div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
 
 /* From Uiverse.io by Admin12121 */ 
-.radio-inputs {
+.radio-inputs-section {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -90,16 +57,16 @@ h3 {
                 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
   }
   
-  .radio-inputs .radio {
+  .radio-inputs-section .radio {
     flex: 1 1 auto;
     text-align: center;
   }
   
-  .radio-inputs .radio input {
+  .radio-inputs-section .radio input {
     display: none;
   }
   
-  .radio-inputs .radio .name {
+  .radio-inputs-section .radio .name {
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -111,44 +78,33 @@ h3 {
     transition: all .15s ease-in-out;
   }
   
-  .radio-inputs .radio input:checked + .name {
+  .radio-inputs-section .radio input:checked + .name {
     background-color: #fff;
     font-weight: 600;
   }
 
 
-/* estilos genrales para ambos formularios */
-.form-group-2, .form-group{
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espacio entre los elementos */
-    padding: 20px;
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
-                0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: #f9f9f9; /* Fondo claro */
-    border-left: 4px solid #a10606; /* Borde izquierdo ROJO */
-}
-
-.p-v{
-    display: flex; /* Usar flexbox para alinear los contenedores en línea */
+.p-v-section{
     width: 95%;
     justify-content: space-between; /* Espaciado uniforme entre los contenedores */
 }
 
-.p-v div:not(.error-message) {
+.p-v-section div:not(.error-message, .campo-1, .campo-2) {
     width: 44%;
 }
 
+.campo-2{
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los elementos */
+    margin-top: auto;
+}
 
 .personal-data, 
 .value-discount, 
-.employee-date, 
-.salary-info, 
-.signature-frequency-content,
-.final-container{
-    display: flex;
+.employee-date-section, 
+.salary-info-section, 
+.signature-frequency-content-section,
+.final-container-section{
     flex-direction: column;
     gap: 10px; /* Espacio entre los elementos */
     padding: 20px;
@@ -185,9 +141,8 @@ h3 {
                 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra externa más pronunciada */
 }
 
-/* Purpose section */
-.purpose {
-    display: flex;
+/* Purpose-section section */
+.purpose-section {
     width: 95%;
     flex-direction: column;
     grid-template-columns: auto 1fr;
@@ -196,7 +151,7 @@ h3 {
 }
 
 
-.purpose textarea{
+.purpose-section textarea{
     width: 100%; /* Ancho completo */
     padding: 15px; /* Espaciado interno */
     border: none; /* Sin borde */
@@ -210,7 +165,7 @@ h3 {
     border-left: 4px solid #919191; /* Borde izquierdo azul */
 }
 
-.purpose textarea:focus {
+.purpose-section textarea:focus {
     outline: none; /* Sin contorno */
     border-left: 4px solid #007BFF; /* Borde izquierdo azul */
     transition: border-color 0.3s;
@@ -220,7 +175,7 @@ h3 {
 
 /* --------------------- ESTILOS PARA EL PARRAFO AUTORIZAR ------------------------ */
 
-.authorize p {
+.authorize-section p {
     width: 95%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px; /* Tamaño de fuente */
@@ -233,7 +188,7 @@ h3 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.authorize input[type="text"] {
+.authorize-section input[type="text"] {
     border: none; /* Sin borde */
     border-bottom: 1px solid #ccc; /* Línea inferior gris */
     background: transparent; /* Fondo transparente */
@@ -244,25 +199,24 @@ h3 {
 }
 
 /* Efecto al enfocar el input */
-.authorize input[type="text"]:focus {
+.authorize-section input[type="text"]:focus {
     border-bottom: 1px solid #a10606; /* Línea inferior azul al enfocar */
     outline: none; /* Sin contorno */
 }
 
 /* Placeholder */
-.authorize input[type="text"]::placeholder {
+.authorize-section input[type="text"]::placeholder {
     color: #aaa; /* Color del texto del placeholder */
     opacity: 1; /* Asegurarse de que el placeholder sea visible */
 }
 
 /* ----------------- EMPLEADO - FECHA e SALARIO INFO ------------------- */
 
-.employee-date input, .form-group-2 input{
+.employee-date-section input, .form-group-2 input{
     width: 50%;
 }
 
 .label-input-group {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
@@ -270,7 +224,6 @@ h3 {
 
 /* ---------------- FIRMAS ----------------- */
 .signature-date, .payment-signature, .payment-method{
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -285,7 +238,6 @@ h3 {
 
 .responsible-signature-report, .date, .signature, .payment-status, .payment-frequency{
     flex: 1; /* Permite que ambos divs ocupen el mismo espacio */
-    display: flex; /* Habilita el modelo de caja flexible para los inputs */
     flex-direction: column; /* Alinea el label y el input en columna */
     text-align: center;
     margin-bottom: 20px;
@@ -302,7 +254,7 @@ h3 {
     width: 100%;
 }
 
-.table-container{
+.table-container-section{
     width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -310,8 +262,8 @@ h3 {
     border-collapse: collapse;
 }
 
-.table {
-    width: 95%;
+.table-section {
+    width: 100%;
     /* margin: 0px auto 0px auto; */
 }
 
@@ -341,10 +293,10 @@ h3 {
     transition: border-color 0.3;
 }
 
-.table tr:nth-child(even) {
+.table-section tr:nth-child(even) {
     background-color: #f2f2f2; /* Fondo gris claro para filas pares */
 }
-.table tr:hover {
+.table-section tr:hover {
     background-color: #e8f0fe; /* Color de fondo al pasar el mouse */
 }
 
@@ -403,41 +355,28 @@ input.error, textarea.error {
 }
 
 /* ESTILOS MENSAJES DE EXITOS */
-.alert-success {
-    background-color: #d4edda;
-    display: flex; 
+.alert-success, .alert-error{
     align-items: center;
     justify-content: center;
     width: 80%;
-    color: #155724;
-    border: 1px solid #c3e6cb;
     padding: 15px;
     margin: 0 auto 25px auto;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 5px; 
+    font-size: 1rem; 
 }
 
-/* Icono verde para el mensaje de éxito */
-.alert-success i {
-    margin-right: 10px;
-    font-size: 1.3rem;
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
-
 
 /* Estilo para el mensaje de error */
 .alert-error {
     background-color: #f8d7da; 
-    display: flex; 
-    align-items: center;
-    justify-content: center; 
-    width: 80%;
     color: #721c24; 
-    border: 1px solid #f5c6cb; 
-    padding: 15px; 
-    margin: 0 auto 25px auto; 
-    border-radius: 5px; 
-    font-size: 1rem; 
-  }
+    border: 1px solid #f5c6cb;
+}
 
 /* Responsive design */
 @media (max-width: 768px) {
