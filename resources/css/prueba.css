@@ -3,6 +3,7 @@ body{
     font-family: Arial, sans-serif;
     font-size: 12px;
     margin-top: 1in;
+    line-height: 1.5;
     color: #000;
 }
 .request-info-section   { width: 100%; }
@@ -59,23 +60,16 @@ input[id*="fl"], label[id*="fl"]{ background-color: #e6e6e6; float: left; }
     
     background-color: beige;
     border: none; outline: none; margin-left: 5px;
-    vertical-align: bottom;
-    line-height: 0;        /* Altura de la línea igual al tamaño de la fuente */
-    height: auto;          /* Permite que el navegador ajuste la altura */
+    vertical-align: bottom; }
+
+#id-name-fl {
+    transform: translateY(-4px);
+}
+#cc {
+    padding-top: 0;
+    transform: translatey(-4px);
 }
 
-/*
-|- - - - - - - - - - - - - - - - - - - - - -
-| Ajustar posición vertical de los inputs
-| y así estén todos alineados con su label
-| al mostrar los datos
-*/
-#id-name-fl     { transform: translateY(7px); }
-#cc             { transform: translatey(3px); }
-#id-value-fl    { transform: translateY(6px); }
-#id-discount-fl { transform: translateY(6px); }
-#id-employee-fl { transform: translateY(6px); }
-#id-date-fl     { transform: translateY(6px); }
 /*
 |- - - - - - - - - - - - - - - - - - - - - -
 | estilo especifico a los imputs que no son 
@@ -84,7 +78,7 @@ input[id*="fl"], label[id*="fl"]{ background-color: #e6e6e6; float: left; }
 .form-group input, .form-group-2 input{ border-bottom: 1px solid black; }
 
 /* ---------------- ANCHURA DE INPUTS ESPECIFICAS ---------------- */
-.personal-data #id-name-fl,
+.personal-data #id-name-fl, 
 .personal-data #id-employee-fl, 
 .final-container-content #input-approved-fl         { width: 56%; margin-left: 7px; }
 
@@ -107,8 +101,7 @@ input[id*="x"]      { width: 20px; margin-right: 15px; }
 .purpose label      { margin-bottom: 5px; }
 .purpose textarea   { display: block; width: 107%; margin-left: -1px; 
     resize: none; border: 1px solid #333; 
-    padding: 9px; font-size: 12px; 
-    font-family: Arial, sans-serif;
+    padding: 9px; font-size: 12px;
 }
 .authorize          { width: 110%; }
 

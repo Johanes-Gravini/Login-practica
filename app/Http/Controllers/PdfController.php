@@ -10,11 +10,15 @@ use Illuminate\Validation\ValidationException;
 class PdfController extends Controller
 {
     //
-    public function pdf()
+    public function pdf($id)
     {
-        $pdf = Pdf::loadView('pdf.pdf1');
+        // Obtener los registro de la tabla 'prestamos'
+        $prestamo = Prestamo::findOrFail($id);
 
-        return $pdf->stream();
+        // Carga la vista y apsa los datos
+        $pdf = Pdf::loadView('pdf.pdf1', ['prestamo' => $prestamo]);
+
+        return $pdf->stream('prestamos.pdf');
     }
 
     public function showForm()
@@ -72,5 +76,12 @@ class PdfController extends Controller
                             ->withErrors('Ocurrió un error inesperado. Intenta de nuevo.')
                             ->withInput();
         }
+    }
+
+    public function show($id)
+    {
+        $prestamo = Prestamo::findOrFail($id);
+
+        return view('pdf.pdf1', compact('prestamo'));
     }
 }

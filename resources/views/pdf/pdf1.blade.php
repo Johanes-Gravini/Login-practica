@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{{ public_path('css/pdf1.css') }}">
+	@vite('resources/css/prueba.css')
 	<title>PRESTAMOS RIB SUELDO</title>
 </head>
 <body>
@@ -37,23 +38,23 @@
 		<div class="form-group">
 			<div class="personal-data">
 				<label for="name" class="name-label" id="name-label-fl">NOMBRE:</label>
-				<input type="text" id="id-name-fl" name="name">
+				<input type="text" id="id-name-fl" name="name" value="{{ $prestamo->name }}">
 
-				<label for="cc" class="cc-label" id="name-fl">C.C:</label>
-				<input type="text" id="cc" name="cc">
+				<label for="cc" class="cc-label" id="cc-fl">C.C:</label>
+				<input type="text" id="cc" name="cc" value="{{ $prestamo->cc }}">
 			</div>
 
 			<div class="value-discount">
 				<label for="value" class="value-label" id="value-label-fl">VALOR SOLICITUADO:</label>
-				<input type="text" id="id-value-fl" name="value">
+				<input type="text" id="id-value-fl" name="value" value="{{ $prestamo->value }}">
 
 				<label for="discount" class="discount-label" id="discount-label-fl">DESC. SUGERIDO:</label>
-				<input type="text" id="id-discount-fl" name="discount">
+				<input type="text" id="id-discount-fl" name="discount" value="{{ $prestamo->discount }}%">
 			</div>
 
 			<div class="purpose">
 				<label for="purpose" class="purpose-label">PROPOSITO:</label>
-				<textarea id="purpose" name="purpose" rows="2"></textarea>
+				<textarea id="purpose" name="purpose" rows="2">{{ $prestamo->purpose }}</textarea>
 			</div>
 
 			<div class="authorize">
@@ -64,10 +65,10 @@
 
 			<div class="personal-data">
 				<label for="employee" class="employee-label" id="employee-label-fl">EL EMPLEADO:</label>
-				<input type="text" id="id-employee-fl" name="employee">
+				<input type="text" id="id-employee-fl" name="employee" value="{{ $prestamo->employee }}">
 
 				<label for="date" class="date-label" id="date-label-fl">FECHA:</label>
-				<input type="text" id="id-date-fl" name="date">
+				<input type="date" id="id-date-fl" name="date" value="{{ $prestamo->date }}">
 			</div>
 		</div>
 

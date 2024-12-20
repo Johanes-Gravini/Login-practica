@@ -30,7 +30,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/formulario', [PdfController::class, 'showForm'])->name('form.show'); // Muestra el formulario
     Route::post('/formulario/submit', [PdfController::class, 'submitForm'])->name('form.submit'); // Procesa los datos del formulario
-    Route::get('/pdf', [PdfController::class, 'pdf'])->name('pdf.pdf');
+    Route::get('/pdf/{id}', [PdfController::class, 'pdf'])->name('pdf.pdf');
+    Route::get('/pdf2/{id}', [PdfController::class, 'show'])->name('pdf.pdf');
+    
 });
 
 // Requiere las ruts de autenticación
