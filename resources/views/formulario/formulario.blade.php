@@ -8,7 +8,7 @@
   @vite('resources/css/form.css')
 </head>
 <body>
-  <div class="title">
+  <div class="title max">
       <u>R.I.B LOGISTICAS S.A.S</u>
   </div>
   <!-- Mostrar mensaje de éxito -->
@@ -39,7 +39,7 @@
     @csrf
     <div class="request-info-section br">
 
-      <h2>DATOS</h2>
+      <h2 class="max">DATOS</h2>
       <!-- 3 CHECKBOX DEL INICIO -->
       <div class="radio-inputs-section flx br">
         <label class="radio br">
@@ -57,14 +57,14 @@
       </div>
       @error('options')
         <div class="error-message">{{ $message }}</div>
-        <div class="separator"></div>
+        <div class="separator-max"></div>
       @enderror
 
       <!-- PRIMER FORMULARIO -->
       <div class="form-group br">
           <!-- <h2 class="title-data">DATOS</h2> -->
           <div class="p-v-section flx">
-            <div class="personal-data flx br">
+            <div class="personal-data flx br box">
               <label for="name" class="name-label">NOMBRE:</label>
               <input type="text" id="name" name="name" required value="{{ old('name') }}">
               @error('name')
@@ -80,7 +80,7 @@
               </div>
             </div>
             
-            <div class="value-discount flx br">
+            <div class="value-discount flx br box">
               <label for="value" class="value-label">VALOR SOLICITADO:</label>
               <input type="number" id="value" name="value" required value="{{ old('value') }}">
               @error('value')
@@ -98,9 +98,9 @@
           </div>
           
           <!-- <h2 class=title-purpose>PROPOSITO</h2> -->
-          <h3>PROPOSITO</h3>
+          <h3 class="max">PROPOSITO</h3>
           <div class="purpose-section flx">
-              <textarea class="br" id="purpose" name="purpose" rows="2" placeholder="Escriba el propósito..." required>{{ old('purpose') }}</textarea>
+              <textarea class="br max" id="purpose" name="purpose" rows="2" placeholder="Escriba el propósito..." required>{{ old('purpose') }}</textarea>
               @error('purpose')
                 <div class="error-message">{{ $message }}</div>
               @enderror
@@ -108,11 +108,11 @@
           
           <div class="authorize-section">
               <!-- <h2 class=title-authorize>AUTORIZAR</h2> -->
-              <p class="br">Autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar de mi salario la cantidad aprobada en: <input type="text" id="partidas" name="partidas"> partidas, comenzando en la quincena de <input type="text" id="quincena" name="quincena">, en caso de que mi contrato fuera cancelado, autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar el saldo o saldos adeudados, de la liquidación de mis salarios, prestaciones sociales o bonificaciones a que tenga derecho, a la terminación de mi contrato.
+              <p class="br max">Autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar de mi salario la cantidad aprobada en: <input type="text" id="partidas" name="partidas"> partidas, comenzando en la quincena de <input type="text" id="quincena" name="quincena">, en caso de que mi contrato fuera cancelado, autorizo a <strong>R.I.B LOGISTICA S.A.S</strong>, para descontar el saldo o saldos adeudados, de la liquidación de mis salarios, prestaciones sociales o bonificaciones a que tenga derecho, a la terminación de mi contrato.
               </p>
           </div>
-          <div class="separator"></div>
-          <div class="employee-date-section flx br">
+          <div class="separator-max"></div>
+          <div class="employee-date-section flx br box">
               <!-- <h2>EMPLEADO - FECHA</h2> -->
               <div class="label-input-group flx">
                 <label for="employee" class="employee-label">EL EMPLEADO:</label>
@@ -132,9 +132,9 @@
           </div>
       </div>
 
-      <h2>PARA USO DE LA EMPRESA</h2>
+      <h2 class="max">PARA USO DE LA EMPRESA</h2>
       <div class="form-group-2 br">
-        <div class="salary-info-section flx br">
+        <div class="salary-info-section flx br box">
           <div class="label-input-group flx">
             <label for="balance" class="balance-label">Saldo a cargo del Empleado $:</label>
             <input type="text" id="balance" name="balance" required disabled>
@@ -159,7 +159,7 @@
           <!-- <div class="separator"></div> -->
             
           <div class="signature-date flx">
-            <div class="date flx">
+            <div class="date-report flx">
 <!-- FECHA EN LA QUE SE LLENÓ ESTE SEGUNDO INFORME -->
               <label for="date" class="datesignature-label">Fecha</label>
               <input type="date" id="date" name="date" required disabled>
@@ -178,20 +178,20 @@
           </div>
         </div>
 
-        <div class="separator"></div>
+        <div class="separator-max"></div>
   <!-- SEGUNDA FIRMA PARA EL QUE APROBÓ O NO -->
-        <div class="signature-frequency-content-section flx br">
+        <div class="signature-frequency-content-section flx br box">
           <div class="payment-signature flx">
-            <div class="payment-status flx">
+            <div class="payment-status-report flx">
               <label for="payment-status" class="payment-status-label">Estado del Pago:</label>
               <select name="payment-status" id="payment-status" disabled>
                 <option value="approved">APROBADO</option>
                 <option value="no-aprovend">NO APROBADO</option>
               </select>
             </div>
-            <div class="signature flx">
+            <div class="signature-report flx">
                 <label for="signature" class="signature-label">Firma</label>
-                <input type="text" id="signature" name="signature" required disabled>
+                <input type="text" class="max" id="signature" name="signature" required disabled>
             </div>
           </div>
 
@@ -200,11 +200,11 @@
               <input type="text" id="approved-amount" name="approved-amount" required disabled>
             </div>
 
-            <h3>PARA PAGOS</h3>
+            <h3 class="max">PARA PAGOS</h3>
             <!-- <div class="for-payments"> -->
   <!-- LOS PAGOS SE TACHAN CON UNA X -->
               <div class="label-input-group flx">
-                <div class="payment-frequency flx">
+                <div class="payment-frequency-report flx">
                   <label for="">Frecuencia</label>
                   <select disabled>
                     <option value="quincenales">QUINCELANES</option>
@@ -213,14 +213,14 @@
                 </div>
                 <!-- <label for="quincena" class="quincena-label">:</label> -->
                 <!-- <input type="text" id="quincena" name="quincena" required> -->
-                <div class="date flx">
+                <div class="date-report flx">
                   <label for="from" class="from-label">A partir de:</label>
                   <input type="date" id="from" name="from" required disabled>
                 </div>
               </div>
         </div>
 
-            <div class="separator"></div>
+            <div class="separator-max"></div>
 
             <div class="label-input-group flx">
               <label for="new-discounts" class="new-discounts-label">Nuevos decuentos:</label>
@@ -228,8 +228,8 @@
             </div>
             
             <!-- tabla de 3 columnas 4 filas -->
-            <div class="table-container-section br">
-              <table class="table-section">
+            <div class="table-container-section max br">
+              <table class="table-section max">
                 <tr>
                   <th class="table-header-title-sup">LIBRANZAS</th>
                   <th class="table-header-title-sup">CUOTA MENSUAL</th>
@@ -252,7 +252,7 @@
                 </tr>
               </table>
             </div>
-            <div class="final-container-section flx br">
+            <div class="final-container-section flx br box">
               <label for="approved-by">APROBADO POR:</label>
               <input type="text" id="input-approved" disabled>
 
@@ -260,8 +260,8 @@
               <input type="date" disabled>
             </div> 
           </div>
-          <div class="btn br">
-            <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+          <div class="btn">
+            <button type="submit" class="br">Enviar</button> <!-- Botón para enviar el formulario -->
           </div>
   </form>
 </body>

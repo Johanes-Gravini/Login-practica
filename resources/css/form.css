@@ -9,7 +9,7 @@ body{ background-color: #f5f5f5; padding: 20px; min-width: 825px;}
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
 
 .form-group-2,
-.form-group { width: 80%; margin: 15px auto 0px auto; }
+.form-group{ width: 80%; margin: 15px auto 0px auto; }
 
 .form-group-2, .form-group{
     flex-direction: column;
@@ -23,42 +23,39 @@ body{ background-color: #f5f5f5; padding: 20px; min-width: 825px;}
 }
 
 /* BORDER RADIUS */
-.form-group input, 
-.form-group-2 input,
+.form-group input, .form-group-2 input,
 .form-group-2 select,
-div[class*="br"]{
-    border-radius: 8px;
-}
-
+[class*="br"]       { border-radius: 8px; }
 /* display flex */
-div[class*="form"],
-div[class*="flx"]{
-    display: flex;
-}
+div[class*="form"], 
+div[class*="flx"]   { display: flex; }
 
+/* width del 100% */
+div[class*="section"],
+[class*="max"]      { width: 100%; }
+
+div[class*="section"], p {margin: 15px auto 15px auto; }
 /* ------------------------------ TITULOS  ------------------------------ */
-.title       { font-weight: bold; }
+.title { font-weight: bold; }
 
 h2, .title,
-h3  { width: 100%; font-size: 20px; text-align: center; padding: 0.1em; margin: 10px auto 0px auto; }
+h3  { font-size: 20px; text-align: center; padding: 0.1em; margin: 10px auto 0px auto; }
 h2  { color: #f0f0f0; background: hsl(0 0% 0%); }
 h3  { color: #000000; background: hsl(0, 0%, 77%); }
 
 /* ------------------------------ TAMAÑO SE LAS SECCIONES GENERALES ------------------------------ */
-div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
 
-/* From Uiverse.io by Admin12121 */ 
+/* --------------- RADIO BUTTONS ---------------------- */
 .radio-inputs-section {
     position: relative;
     flex-wrap: wrap;
     background-color: #EEE;
-    box-sizing: border-box;
     box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
     padding: 0.25rem;
     width: 95%;
     font-size: 14px;
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
-                0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2),
+                0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .radio-inputs-section .radio {
@@ -87,90 +84,62 @@ div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
   }
 
 
-.p-v-section{
-    width: 95%;
-    justify-content: space-between; /* Espaciado uniforme entre los contenedores */
-}
+.p-v-section{ width: 95%; justify-content: space-between; }
+.p-v-section 
+div:not(.error-message, .campo-1, .campo-2) { width: 44%; }
 
-.p-v-section div:not(.error-message, .campo-1, .campo-2) {
-    width: 44%;
-}
+/* asignarle margin-top automatico al segundo campo tanto de p-v como de value-discount */
+.campo-2    { flex-direction: column; gap: 10px; margin-top: auto; }
 
-.campo-2{
-    flex-direction: column;
-    gap: 10px; /* Espacio entre los elementos */
-    margin-top: auto;
-}
-
-.personal-data, 
-.value-discount, 
-.employee-date-section, 
-.salary-info-section, 
-.signature-frequency-content-section,
-.final-container-section{
-    flex-direction: column;
-    gap: 10px; /* Espacio entre los elementos */
-    padding: 20px;
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
-                0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
-    border: 1px solid #ccc; /* Borde gris claro */
-    background-color: #ffffff; /* Fondo claro */
+/* --------------------------------- CAJAS --------------------------------- */
+[class*="box"]  { 
+    flex-direction: column; gap: 10px; padding: 20px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2),
+                0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc; 
+    background-color: #ffffff; 
 }
 
 
 .form-group label,
-.form-group-2 label {
-    font-weight: bold; /* Texto en negrita */
-}
+.form-group-2 label { font-weight: bold; }
 
 .form-group input, 
 .form-group-2 input,
-.form-group-2 select{
-    background-color: #f9f9f9;
-    padding: 6px; /* Espaciado interno */
-    max-width: 100%;
-    border: 3px solid #ccc; /* Borde gris claro */
-    transition: border-color 0.3s; /* Transición suave */
-}
+.form-group-2 select{ background-color: #f9f9f9; padding: 6px; max-width: 100%; 
+    border: 3px solid #ccc; 
+    transition: border-color 0.3s; }
 
 .form-group input:focus,
-.form-group-2 input:focus {
-    outline: none; /* Sin contorno */
-    border-left: 3px solid #007BFF; /* Borde izquierdo azul */
-    transition: border-color 0.3s;
-    box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.3), /* Sombra interna más oscura */
-                0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra externa más pronunciada */
-}
+.form-group-2 input:focus { outline: none; border-left: 3px solid #007BFF; transition: border-color 0.3s;
+    box-shadow: inset 0 4px 8px rgba(255, 255, 255, 0.3), 
+                0 4px 10px rgba(0, 0, 0, 0.2);  }
 
 /* Purpose-section section */
-.purpose-section {
+.purpose-section { 
     width: 95%;
     flex-direction: column;
     grid-template-columns: auto 1fr;
     gap: 15px;
     align-items: start;
 }
-
-
 .purpose-section textarea{
-    width: 100%; /* Ancho completo */
-    padding: 15px; /* Espaciado interno */
-    border: none; /* Sin borde */
-    background-color: #ffffff; /* Color de fondo claro */
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra interna */
-                0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra externa */
-    font-size: 16px; /* Tamaño de fuente */
-    resize: none; /* Deshabilitar el redimensionamiento */
-    transition: box-shadow 0.3s; /* Transición suave para el efecto de enfoque */
-    border-left: 4px solid #919191; /* Borde izquierdo azul */
+    padding: 15px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2),
+                0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    resize: none;
+    transition: box-shadow 0.3s;
+    border-left: 4px solid #919191;
 }
-
 .purpose-section textarea:focus {
-    outline: none; /* Sin contorno */
-    border-left: 4px solid #007BFF; /* Borde izquierdo azul */
+    outline: none;
+    border-left: 4px solid #007BFF;
     transition: border-color 0.3s;
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3), /* Sombra interna más oscura */
-                0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra externa más pronunciada */
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* --------------------- ESTILOS PARA EL PARRAFO AUTORIZAR ------------------------ */
@@ -178,23 +147,23 @@ div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
 .authorize-section p {
     width: 95%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px; /* Tamaño de fuente */
-    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
-    color: #333; /* Color del texto */
-    padding: 10px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Color de fondo suave */
-    border: 4px solid #ffffff; /* Borde izquierdo azul */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 4px solid #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .authorize-section input[type="text"] {
-    border: none; /* Sin borde */
-    border-bottom: 1px solid #ccc; /* Línea inferior gris */
-    background: transparent; /* Fondo transparente */
-    padding: 1px 0; /* Espaciado vertical */
-    width: 100px; /* Ancho fijo para los inputs */
-    font-size: inherit; /* Heredar tamaño de fuente del párrafo */
-    transition: border-color 0.3s; /* Transición suave */
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 1px 0;
+    width: 100px;
+    font-size: inherit;
+    transition: border-color 0.3s;
 }
 
 /* Efecto al enfocar el input */
@@ -211,9 +180,9 @@ div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
 
 /* ----------------- EMPLEADO - FECHA e SALARIO INFO ------------------- */
 
-.employee-date-section input, .form-group-2 input{
-    width: 50%;
-}
+.employee-date-section input, 
+.form-group-2 input, 
+.payment-status-report select{ width: 50%; }
 
 .label-input-group {
     justify-content: space-between;
@@ -222,20 +191,12 @@ div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
 }
 
 /* ---------------- FIRMAS ----------------- */
-.signature-date, .payment-signature, .payment-method{
-    justify-content: space-between;
-    align-items: center;
-}
+.signature-date, 
+.payment-method,
+.payment-signature          { justify-content: space-between; align-items: center; }
+.payment-frequency-report select   { margin: auto; }
 
-.payment-status select{
-    width: 50%;
-}
-
-.payment-frequency select {
-    margin: auto;
-}
-
-.responsible-signature-report, .date, .signature, .payment-status, .payment-frequency{
+div[class*="report"]{
     flex: 1; /* Permite que ambos divs ocupen el mismo espacio */
     flex-direction: column; /* Alinea el label y el input en columna */
     text-align: center;
@@ -243,26 +204,17 @@ div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
 }
 
 .responsible-signature-report input, 
-.date input, 
-.signature input, 
-.payment-status select {
+.date-report input, 
+.signature-report input, 
+.payment-status-report select {
     margin: 2px auto 2px auto;
 }
 
-.responsible-signature-report input, .signature input{
-    width: 100%;
-}
 
 .table-container-section{
-    width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-collapse: collapse;
-}
-
-.table-section {
-    width: 100%;
-    /* margin: 0px auto 0px auto; */
 }
 
 .table-header {
@@ -298,8 +250,7 @@ div[class*="section"] { width: 95%; margin: 15px auto 15px auto; }
     background-color: #e8f0fe; /* Color de fondo al pasar el mouse */
 }
 
-.separator {
-    width: 100%; /* O el ancho que desees */
+.separator-max {
     height: 4px; /* Grosor de la línea */
     background: linear-gradient(to right, #b44f44, #061783); /* Gradiente de rojo */
     margin: 20px 0; /* Espaciado superior e inferior */
