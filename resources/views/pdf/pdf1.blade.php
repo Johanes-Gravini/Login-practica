@@ -11,25 +11,39 @@
 	<div class="title">
 		<u>R.I.B LOGISTICAS S.A.S</u>
 	</div>
-	
 	<div class="request-info-section">
 		<!-- 3 CHECKBOX DEL INICIO -->
 		<div class="checkbox-container">
 			<label>
-				<span class="custom-checkbox"></span>
-				<input type="checkbox" id="option1" name="options[]" value="value1">
+				<span class="custom-checkbox">
+					@if($prestamo->options == 'solicitud_prestamo')
+						X
+					@endif
+				</span>
+				<input type="checkbox" id="option1" name="options" value="value1"
+					@if($prestamo->options == 'solicitud_prestamo') checked @endif>
 				<strong>SOLICITUD DE PRESTAMO</strong>
 			</label>
 	
 			<label>
-				<span class="custom-checkbox"></span>
-				<input type="checkbox" id="option2" name="options[]" value="value2">
+				<span class="custom-checkbox">
+					@if($prestamo->options == 'anticipo_arriendo_moto')
+						X
+					@endif
+				</span>
+				<input type="checkbox" id="option2" name="options" value="value2"
+					@if($prestamo->options == 'anticipo_arriendo_moto') checked @endif>
 				<strong>ANTICIPO DE ARRIENDO DE MOTO</strong>
 			</label>
 	
 			<label>
-				<span class="custom-checkbox"></span>
-				<input type="checkbox" id="option3" name="options[]" value="value3">
+				<span class="custom-checkbox">
+					@if($prestamo->options == 'anticipo_sueldo')
+						X
+					@endif
+				</span>
+				<input type="checkbox" id="option3" name="options" value="value3"
+					@if($prestamo->options == 'anticipo_sueldo') checked @endif>
 				<strong>ANTICIPO SUELDO</strong>
 			</label>
 		</div>
