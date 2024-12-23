@@ -10,6 +10,15 @@ use Illuminate\Validation\ValidationException;
 class PdfController extends Controller
 {
     //
+    public function index()
+    {
+        // Obtener todos los textos de la base de datos
+        $prestamos = Prestamo::all();
+        
+        // Pasar los textos a la vista
+        return view('formulario.index', compact('prestamos'));
+    }
+
     public function pdf($id)
     {
         // Obtener los registro de la tabla 'prestamos'

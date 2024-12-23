@@ -19,6 +19,9 @@
                     <x-nav-link :href="route('texts.index')" :active="request()->routeIs('texts.index')">
                         {{ __('Lista de Textos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('formulario.index')" :active="request()->routeIs('formulario.index')">
+                        {{ __('Prestamos')}}
+                    </x-nav-link>
                     
                 </div>
             </div>
