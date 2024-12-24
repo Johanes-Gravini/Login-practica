@@ -132,7 +132,7 @@
           </div>
       </div>
 
-      <h2 class="max">PARA USO DE LA EMPRESA</h2>
+      <!-- <h2 class="max">PARA USO DE LA EMPRESA</h2>
       <div class="form-group-2 br">
         <div class="salary-info-section flx br box">
           <div class="label-input-group flx">
@@ -156,16 +156,16 @@
             <input type="text" id="salary" name="salary" required disabled>
         </div>
 
-          <!-- <div class="separator"></div> -->
+          
             
           <div class="signature-date flx">
             <div class="date-report flx">
-<!-- FECHA EN LA QUE SE LLENÓ ESTE SEGUNDO INFORME -->
+
               <label for="date" class="datesignature-label">Fecha</label>
               <input type="date" id="date" name="date" required disabled>
             </div>
 
-<!-- LA FIRMA PUEDE SER UN SELECCIONAR YA QUE SON POCOS LOS RESPONSABLES DEL INFORME -->
+
             <div class="responsible-signature-report flx">
               <label for="responsible-signature-report flx" class="signature-label">Responsable del Informe</label>
               <select name="responsible-report" disabled>
@@ -179,7 +179,7 @@
         </div>
 
         <div class="separator-max"></div>
-  <!-- SEGUNDA FIRMA PARA EL QUE APROBÓ O NO -->
+  
         <div class="signature-frequency-content-section flx br box">
           <div class="payment-signature flx">
             <div class="payment-status-report flx">
@@ -201,8 +201,8 @@
             </div>
 
             <h3 class="max">PARA PAGOS</h3>
-            <!-- <div class="for-payments"> -->
-  <!-- LOS PAGOS SE TACHAN CON UNA X -->
+            
+  
               <div class="label-input-group flx">
                 <div class="payment-frequency-report flx">
                   <label for="">Frecuencia</label>
@@ -211,8 +211,8 @@
                     <option value="mensuales">MENSUALES</option>
                   </select>
                 </div>
-                <!-- <label for="quincena" class="quincena-label">:</label> -->
-                <!-- <input type="text" id="quincena" name="quincena" required> -->
+                
+                
                 <div class="date-report flx">
                   <label for="from" class="from-label">A partir de:</label>
                   <input type="date" id="from" name="from" required disabled>
@@ -227,7 +227,7 @@
               <input type="text" id="new-discounts" name="new-discounts" required disabled>
             </div>
             
-            <!-- tabla de 3 columnas 4 filas -->
+            
             <div class="table-container-section max br">
               <table class="table-section max">
                 <tr>
@@ -259,7 +259,7 @@
               <label for="date-approved">FECHA:</label>
               <input type="date" disabled>
             </div> 
-          </div>
+          </div> -->
           <div class="btn">
             <button type="submit" class="br">Enviar</button> <!-- Botón para enviar el formulario -->
           </div>

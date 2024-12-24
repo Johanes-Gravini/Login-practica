@@ -12,10 +12,10 @@ class PdfController extends Controller
     //
     public function index()
     {
-        // Obtener todos los textos de la base de datos
+        // Obtener todos los registros PRESTAMOS de la base de datos
         $prestamos = Prestamo::all();
         
-        // Pasar los textos a la vista
+        // Pasar los registros PRESTAMOS a la vista
         return view('formulario.index', compact('prestamos'));
     }
 
@@ -33,6 +33,13 @@ class PdfController extends Controller
     public function showForm()
     {
         return view('Formulario.formulario');
+    }
+
+    public function showFormAdmin($id)
+    {
+        // Obtener el registro específico de la tabla 'prestamos'
+        $prestamo = Prestamo::findOrFail($id);
+        return view('Formulario.admin', compact('prestamo'));
     }
 
     public function submitForm(Request $request)

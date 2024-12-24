@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     // ruta pdf
     Route::get('/formulario', [PdfController::class, 'index'])->name('formulario.index');
     Route::get('/formulario/show', [PdfController::class, 'showForm'])->name('form.show'); // Muestra el formulario
+    Route::get('/formulario/showAdmin/{id}', [PdfController::class, 'showFormAdmin'])->name('form.admin'); // Muestra el formulario
     Route::post('/formulario/submit', [PdfController::class, 'submitForm'])->name('form.submit'); // Procesa los datos del formulario
     Route::get('/pdf/{id}', [PdfController::class, 'pdf'])->name('pdf.pdf');
     // Route::get('/pdf2/{id}', [PdfController::class, 'show'])->name('pdf.pdf');

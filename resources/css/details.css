@@ -1,0 +1,77 @@
+.main{
+    display: flex;
+}
+
+.title {
+    margin-left: 10%;
+}
+
+form {
+    min-width: 900px;
+    position: absolute;
+    margin: 5px auto 20px 30%;
+}
+
+
+.loan-details-card {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo de la tarjeta */
+    height: 500px;
+    position: fixed; /* Mantener la tarjeta fija */
+    margin: 20px auto 20px 40px; /* Centrar la tarjeta */
+    font-family: Arial, sans-serif; /* Fuente */
+    overflow: auto;  /* Permitir scroll si el contenido es demasiado */
+}
+
+.loan-details-card h1 {
+    margin-top: 10px;
+}
+
+.scrollable-form {
+    margin-left: 450px; /* Deja espacio para la tarjeta */
+    padding: 20px; /* Espaciado interno */
+    overflow: auto; /* Permitir scroll en el formulario */
+    max-height: 100vh; /* Altura máxima para el formulario */
+    width: calc(100% - 450px); /* Ajustar el ancho del formulario */
+}
+
+.loan-details-card h1 {
+    font-size: 24px; /* Tamaño de fuente del título */
+    color: #333; /* Color del texto */
+    margin-bottom: 15px; /* Espaciado inferior */
+    text-align: center; /* Centrar el texto */
+}
+
+.details-grid {
+    display: grid; /* Usar grid para el layout */
+    grid-template-columns: 1fr; /* Una columna */
+    gap: 10px; /* Espaciado entre elementos */
+}
+
+.details-grid p {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin: 0; /* Sin margen */
+    color: #555; /* Color del texto */
+    position: relative; /* Para posicionar el pseudo-elemento */
+}
+
+.details-grid p strong {
+    color: #007bff; /* Color azul para el texto fuerte */
+}
+
+.details-grid p::before {
+    content: ''; /* Pseudo-elemento para el detalle */
+    position: absolute;
+    top: 50%;
+    left: -10px; /* Ajustar la posición */
+    width: 5px; /* Ancho de la línea */
+    height: 50%; /* Altura de la línea */
+    background-color: #dc3545; /* Color rojo */
+    border-radius: 3px; /* Bordes redondeados */
+    transform: translateY(-50%); /* Centrar verticalmente */
+}

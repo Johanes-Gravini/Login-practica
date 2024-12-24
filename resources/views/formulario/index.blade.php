@@ -23,7 +23,7 @@
         <tr>
           <th class="px-4 py-2 text-left">Nombre</th>
           <th class="px-4 py-2 text-left">Opción</th>
-          <th class="px-4 py-2 text-left">Acción</th>
+          <th class="px-4 py-2 text-left">--Acción--</th>
         </tr>
       </thead>
       <tbody>
@@ -31,9 +31,12 @@
           <tr class="border-b border-gray-300">
             <td class="px-4 py-2">{{ $prestamo->name }}</td>
             <td class="px-4 py-2">{{ $prestamo->options }}</td>
-            <td class="px-4 py-2">
-              <a href="{{ route('pdf.pdf', $prestamo->id) }}" class="text-blue-700 hover:text-blue-500">
+            <td class="px-4 py-2 flex ">
+              <a href="{{ route('pdf.pdf', $prestamo->id) }}" class="p-1 mr-4 text-green-800 hover:text-lime-500 shadow-md shadow-lime-200 bg-slate-100 hover:shadow-sm rounded">
                 Visualizar
+              </a>
+              <a href="{{ route('form.admin', $prestamo->id) }}" class="p-1 text-red-800 hover:text-red-500 shadow-md shadow-700 bg-slate-100 hover:shadow-sm rounded">
+                Editar
               </a>
             </td>
           </tr>
