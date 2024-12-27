@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('options');
             $table->string('name');
             $table->string('cc', 10);
-            $table->decimal('value');
+            $table->decimal('value', 15, 2);
             $table->decimal('discount', 10, 2)->nullable();
             $table->string('purpose');
             $table->string('employee');

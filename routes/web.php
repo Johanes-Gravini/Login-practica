@@ -17,21 +17,22 @@ Route::get('/dashboard', function () {
 
 // Grupo  de rutas protegias por autenticación
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get      ('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch    ('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete   ('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Ruta para crud de texto
-    Route::get('/texts', [TextController::class, 'index'])->name('texts.index');
-    Route::get('/texts/create', [TextController::class, 'create'])->name('texts.create');
-    Route::post('/texts', [TextController::class, 'store'])->name('texts.store');
+    Route::get  ('/texts', [TextController::class, 'index'])->name('texts.index');
+    Route::get  ('/texts/create', [TextController::class, 'create'])->name('texts.create');
+    Route::post ('/texts', [TextController::class, 'store'])->name('texts.store');
 
     // ruta pdf
-    Route::get('/formulario', [PdfController::class, 'index'])->name('formulario.index');
-    Route::get('/formulario/show', [PdfController::class, 'showForm'])->name('form.show'); // Muestra el formulario
-    Route::get('/formulario/showAdmin/{id}', [PdfController::class, 'showFormAdmin'])->name('form.admin'); // Muestra el formulario
-    Route::post('/formulario/submit', [PdfController::class, 'submitForm'])->name('form.submit'); // Procesa los datos del formulario
-    Route::get('/pdf/{id}', [PdfController::class, 'pdf'])->name('pdf.pdf');
+    Route::get  ('/formulario', [PdfController::class, 'index'])->name('formulario.index');
+    Route::get  ('/formulario/show', [PdfController::class, 'showForm'])->name('form.show');
+    Route::post ('/formulario/submit', [PdfController::class, 'submitForm'])->name('form.submit');
+    Route::get  ('/formulario/showAdmin/{id}', [PdfController::class, 'showFormAdmin'])->name('form.admin');
+    Route::post ('/formulario/submit/admin/{id}', [PdfController::class, 'submitForm'])->name('form.submit.admin');
+    Route::get  ('/pdf/{id}', [PdfController::class, 'pdf'])->name('pdf.pdf');
     // Route::get('/pdf2/{id}', [PdfController::class, 'show'])->name('pdf.pdf');
     
 });

@@ -12,19 +12,6 @@
   <div class="title max">
       <u>R.I.B LOGISTICAS S.A.S</u>
   </div>
-  <!-- Mostrar mensaje de éxito -->
-  @if(session('success'))
-    <div class="alert alert-success flx">
-        {{ session('success') }}
-    </div>
-  @endif
-
-  <!-- Mostrar mensaje de error NO FUNCIONA POR AHORA JASDFJASDF -->
-  @if(session('error'))
-    <div class="alert alert-error flx">
-        {{ session('error') }}
-    </div>
-  @endif
   <div class="main">
 
     <div class="loan-details-card">
@@ -42,7 +29,20 @@
       </div>
     </div>
   
-    <form action="{{ route('form.submit') }}" method="POST">
+    <form action="{{ route('form.submit.admin', $prestamo->id) }}" method="POST">
+      <!-- Mostrar mensaje de éxito -->
+      @if(session('success'))
+        <div class="alert alert-success flx">
+            {{ session('success') }}
+        </div>
+      @endif
+
+      <!-- Mostrar mensaje de error NO FUNCIONA POR AHORA JASDFJASDF -->
+      @if(session('error'))
+        <div class="alert alert-error flx">
+            {{ session('error') }}
+        </div>
+      @endif
       @csrf
       <div class="request-info-section br">
         <h2 class="max">PARA USO DE LA EMPRESA</h2>
@@ -81,7 +81,7 @@
   
               <div class="responsible-signature-report flx">
                 <label for="responsible-signature-report flx" class="signature-label">Responsable del Informe</label>
-                <select name="responsible-report">
+                <select name="responsible_report" id="responsible-report">
                   <option value="1">PERSONA 1</option>
                   <option value="2">PERSONA 2</option>
                   <option value="3">PERSONA 3</option>
@@ -97,7 +97,7 @@
             <div class="payment-signature flx">
               <div class="payment-status-report flx">
                 <label for="payment-status" class="payment-status-label">Estado del Pago:</label>
-                <select name="payment-status" id="payment-status">
+                <select name="payment_status" id="payment-status">
                   <option value="approved">APROBADO</option>
                   <option value="no-aprovend">NO APROBADO</option>
                 </select>
@@ -110,7 +110,7 @@
   
             <div class="label-input-group flx">
               <label for="approved-amount" class="approvedamount-label">Cantidad Aprobada $:</label>
-              <input type="text" id="approved-amount" name="approved-amount" required>
+              <input type="text" id="approved-amount" name="approved_amount" required>
             </div>
   
             <h3 class="max">PARA PAGOS</h3>
@@ -119,7 +119,7 @@
             <div class="label-input-group flx">
               <div class="payment-frequency-report flx">
                 <label for="">Frecuencia</label>
-                <select>
+                <select name="payment_frequency">
                   <option value="quincenales">QUINCELANES</option>
                   <option value="mensuales">MENSUALES</option>
                 </select>
@@ -137,7 +137,7 @@
   
           <div class="label-input-group flx">
             <label for="new-discounts" class="new-discounts-label">Nuevos decuentos:</label>
-            <input type="text" id="new-discounts" name="new-discounts" required>
+            <input type="text" id="new-discounts" name="new_discounts" required>
           </div>
               
           <div class="table-container-section max br">
@@ -149,27 +149,27 @@
               </tr>
               <tr>
                 <th class="table-header-title">COMFENALCO</th>
-                <th class="table-header"><input type="text" id="input-table-22" name="input-table"></th>
-                <th class="table-header"><input type="text" id="input-table-23" name="input-table"></th>
+                <th class="table-header"><input type="text" id="input-table-22" name="comfenalco_mensual"></th>
+                <th class="table-header"><input type="text" id="input-table-23" name="comfenalco_saldo"></th>
               </tr>
               <tr>
                 <th class="table-header-title">COMBARRANQUILLA</th>
-                <th class="table-header"><input type="text" id="input-table-32" name="input-table"></th>
-                <th class="table-header"><input type="text" id="input-table-33" name="input-table"></th>
+                <th class="table-header"><input type="text" id="input-table-32" name="combarranquilla_mensual"></th>
+                <th class="table-header"><input type="text" id="input-table-33" name="combarranquilla_saldo"></th>
               </tr>
               <tr>
                 <th class="table-header-title">OTROS</th>
-                <th class="table-header"><input type="text" id="input-table-42" name="input-table"></th>
-                <th class="table-header"><input type="text" id="input-table-43" name="input-table"></th>
+                <th class="table-header"><input type="text" id="input-table-42" name="otros_mensual"></th>
+                <th class="table-header"><input type="text" id="input-table-43" name="otros_saldo"></th>
               </tr>
             </table>
           </div>
           <div class="final-container-section flx br box">
             <label for="approved-by">APROBADO POR:</label>
-            <input type="text" id="input-approved">
+            <input type="text" id="input-approved" name="input_approved">
   
             <label for="date-approved">FECHA:</label>
-            <input type="date">
+            <input type="date" name="date_approved">
           </div> 
         </div>
   </div>

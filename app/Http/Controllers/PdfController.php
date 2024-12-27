@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Prestamo;
+use App\Models\PrestamosAdmin;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 use Illuminate\Http\Request;
@@ -38,17 +39,19 @@ class PdfController extends Controller
     public function showFormAdmin($id)
     {
         // Obtener el registro específico de la tabla 'prestamos'
-        $prestamo = Prestamo::findOrFail($id);
-        return view('Formulario.admin', compact('prestamo'));
+        $prestamo = Prestamo::findOrFail($id); // Obtiene el préstamo por ID
+        return view('Formulario.admin', compact('prestamo')); // Pasa el préstamo a la vista
     }
 
-    public function submitForm(Request $request)
+    public function submitForm(Request $request, $id = null)
     {
         
         try {
             // Obtener el nobre de la ruta
             $routeName = $request->route()->getName();
+            // dd($routeName, $id);
             // Configurar reglas y mensajes según la ruta
+            
             if ($routeName === 'form.submit'){
                 // Validaciones específicas para el formulario de usuarios
                 $validated = $request->validate([
@@ -84,17 +87,72 @@ class PdfController extends Controller
                 Prestamo::create($validated);
                 // Redirigir al formulario con mensaje de éxito
                 return redirect()->route('formulario.index')->with('success', 'Formulario enviado correctamente');
-            } elseif ($routeName === 'hola'){
-                $message = 'Entró en el elseif';
-                return $message;
+            } elseif ($routeName === 'form.submit.admin'){
+                // logica para la validación de los datos del formulario admin...
+                $validated = $request->validate([
+                    'balance'   => 'required|numeric',
+                    'maturity'  => 'required|string|max:255',
+                    'payments'  => 'required|numeric',
+                    'entrydate' => 'required|date',
+                    'salary'    => 'required|numeric',
+                    'date'      => 'required|date',
+                    'responsible_report'    => 'required|string|max:255',
+                    'payment_status'        => 'required|boolean',
+                    'signature'             => 'required|string|max:255',
+                    'approved_amount'       => 'required|numeric',
+                    'payment_frequency'     => 'required|string|max:255',
+                    'from'                  => 'required|date',
+                    'new_discounts'         => 'nullable|string|max:255',
+                    'input_approved'        => 'required|string|max:255',
+                    'date_approved'         => 'required|date',
+                    // Validaciones para las libranzas
+                    'comfenalco_mensual'        => 'nullable|numeric',
+                    'comfenalco_saldo'          => 'nullable|numeric',
+                    'combarranquilla_mensual'   => 'nullable|numeric',
+                    'combarranquilla_saldo'     => 'nullable|numeric',
+                    'otros_mensual'             => 'nullable|numeric',
+                    'otros_saldo'               => 'nullable|numeric',
+                ], [
+                    'balance.required'              => 'El balance es obligatorio.',
+                    'maturity.required'             => 'El vencimiento es obligatorio.',
+                    'payments.required'             => 'Los pagos son obligatorios.',
+                    'entrydate.required'            => 'La fecha de entrada es obligatoria.',
+                    'salary.required'               => 'El salario es obligatorio.',
+                    'date.required'                 => 'La fecha es obligatoria.',
+                    'responsible_report.required'   => 'El responsable del informe es obligatorio.',
+                    'payment_status.required'       => 'El estado del pago es obligatorio.',
+                    'signature.required'            => 'La firma es obligatoria.',
+                    'approved_amount.required'      => 'El monto aprobado es obligatorio.',
+                    'payment_frequency.required'    => 'La frecuencia de pago es obligatoria.',
+                    'from.required'                 => 'La fecha de inicio es obligatoria.',
+                    'input_approved.required'       => 'El campo de entrada aprobado es obligatorio.',
+                    'date_approved.required'        => 'La fecha de aprobación es obligatoria.',
+                ]);
+                // modelo para ingresar el nuevo registro a la tabla de la DB
+                PrestamosAdmin::create($validated);
+                // redirigir al listado de peticiones con mensaje de éxito
+                return redirect()->route('formulario.index')->with('success', 'Respuesta enviada correctamente');
             } else {
                 return redirect()->back()->with('error', 'Ruta no válida');
             }
         } catch (ValidationException $e) {
-            return redirect()->route('form.show')
-                            ->with('error', 'Se han ingresado datos invalidos')
-                            ->withErrors($e->errors()) // errors solo funciona con ValidationException
-                            ->withInput(); // mantiene el input anterior
+            // Redirigir a la ruta correspondiente según el formulario
+            if ($routeName === 'form.submit') {
+                return redirect()->route('form.show')
+                                 ->with ('error', 'Se han ingresado datos inválidos')
+                                 ->withErrors($e->errors())
+                                 ->withInput();
+            } elseif ($routeName === 'form.submit.admin' && $id !== null) {
+                return redirect()->route('form.admin', ['id' => $id])
+                                 ->with('error', 'Se han ingresado datos inválidos')
+                                 ->withErrors($e->errors())
+                                 ->withInput();
+            } else {
+                return redirect()->route('form.show')
+                                 ->with('error', 'Se han ingresado datos inválidos 2')
+                                 ->withErrors($e->errors())
+                                 ->withInput();
+            }
 
         } catch (\Throwable $e) {
             return redirect()->route('form.show')
