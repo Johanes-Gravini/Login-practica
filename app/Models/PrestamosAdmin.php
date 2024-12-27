@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PrestamosAdmin extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
         'prestamos_request_id',
         'balance',
@@ -33,4 +34,14 @@ class PrestamosAdmin extends Model
         'input_approved',
         'date_approved',
     ];
+
+    /**
+     * Definir la relación inversa con Prestamo.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function prestamo(): BelongsTo
+    {
+        return $this->belongsTo(Prestamo::class, 'prestamos_request_id');
+    }
 }

@@ -45,7 +45,7 @@ class PdfController extends Controller
 
     public function submitForm(Request $request, $id = null)
     {
-        
+        // dd($request->all());
         try {
             // Obtener el nobre de la ruta
             $routeName = $request->route()->getName();
@@ -97,10 +97,10 @@ class PdfController extends Controller
                     'salary'    => 'required|numeric',
                     'date'      => 'required|date',
                     'responsible_report'    => 'required|string|max:255',
-                    'payment_status'        => 'required|boolean',
+                    'payment_status'        => 'required|in:approved,no-aprovend',
                     'signature'             => 'required|string|max:255',
                     'approved_amount'       => 'required|numeric',
-                    'payment_frequency'     => 'required|string|max:255',
+                    'payment_frequency'     => 'required|in:quincenales,mensuales',
                     'from'                  => 'required|date',
                     'new_discounts'         => 'nullable|string|max:255',
                     'input_approved'        => 'required|string|max:255',
@@ -128,6 +128,9 @@ class PdfController extends Controller
                     'input_approved.required'       => 'El campo de entrada aprobado es obligatorio.',
                     'date_approved.required'        => 'La fecha de aprobación es obligatoria.',
                 ]);
+                // Agregar el ID del prestamo al arrya de datos validados
+                $validated['prestamos_request_id'] = $id; 
+                // dd($request->all());
                 // modelo para ingresar el nuevo registro a la tabla de la DB
                 PrestamosAdmin::create($validated);
                 // redirigir al listado de peticiones con mensaje de éxito
@@ -139,22 +142,25 @@ class PdfController extends Controller
             // Redirigir a la ruta correspondiente según el formulario
             if ($routeName === 'form.submit') {
                 return redirect()->route('form.show')
-                                 ->with ('error', 'Se han ingresado datos inválidos')
-                                 ->withErrors($e->errors())
-                                 ->withInput();
+                ->with ('error', 'Se han ingresado datos inválidos')
+                ->withErrors($e->errors())
+                ->withInput();
             } elseif ($routeName === 'form.submit.admin' && $id !== null) {
+                // dd($e->errors());
                 return redirect()->route('form.admin', ['id' => $id])
-                                 ->with('error', 'Se han ingresado datos inválidos')
-                                 ->withErrors($e->errors())
-                                 ->withInput();
+                ->with('error', 'Se han ingresado datos inválidos')
+                ->withErrors($e->errors())
+                ->withInput();
             } else {
                 return redirect()->route('form.show')
-                                 ->with('error', 'Se han ingresado datos inválidos 2')
-                                 ->withErrors($e->errors())
-                                 ->withInput();
+                ->with('error', 'Se han ingresado datos inválidos 2')
+                ->withErrors($e->errors())
+                ->withInput();
             }
-
+            
         } catch (\Throwable $e) {
+            // dd($routeName, $id);
+            // dd($e);
             return redirect()->route('form.show')
                             ->withErrors('Ocurrió un error inesperado. Intenta de nuevo.')
                             ->withInput();

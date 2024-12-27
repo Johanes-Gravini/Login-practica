@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prestamos_admin', function (Blueprint $table) {
+        Schema::create('prestamos_admins', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('prestamos_request_id')->constrained('prestamos')->onDelete('cascade');
+            $table->foreignId('prestamos_request_id')->constrained('prestamos');
             $table->string('balance');
             $table->string('maturity');
             $table->string('payments');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('responsible_report');
             // RECORDAR VALIDAR EN EL CONTROLADOR QUE LA OPCIÓN SELECCIONADA SE CONVIERTA EN TRUE O FALSE RESPECTIVAMENTE 
-            $table->boolean('payment_status');
+            $table->string('payment_status');
 
             $table->string('signature');
             $table->string('approved_amount');
@@ -50,6 +50,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prestamos_admin');
+        Schema::dropIfExists('prestamos_admins');
     }
 };
