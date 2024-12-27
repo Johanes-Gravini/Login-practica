@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('salary');
             $table->date('date');
             $table->string('responsible_report');
-            // RECORDAR VALIDAR EN EL CONTROLADOR QUE LA OPCIÓN SELECCIONADA SE CONVIERTA EN TRUE O FALSE RESPECTIVAMENTE 
+            
             $table->string('payment_status');
 
             $table->string('signature');

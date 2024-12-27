@@ -9,27 +9,27 @@
   @vite('resources/css/details.css')
 </head>
 <body>
-  <div class="title max">
-      <u>R.I.B LOGISTICAS S.A.S</u>
-  </div>
   <div class="main">
-
+    
     <div class="loan-details-card">
       <h2>Detalles del Préstamo</h2>
       <div class="details-grid">
-          <!-- <p><strong>ID:</strong> {{ $prestamo->id }}</p> -->
-          <p><strong>Opción de Préstamo:</strong> {{ $prestamo->options }}</p>
-          <p><strong>Cliente:</strong> {{ $prestamo->name }}</p>
-          <p><strong>Cédula:</strong> {{ $prestamo->cc }}</p>
-          <p><strong>Valor Solicitado:</strong> ${{ number_format($prestamo->value, 2) }}</p>
+        <!-- <p><strong>ID:</strong> {{ $prestamo->id }}</p> -->
+        <p><strong>Opción de Préstamo:</strong> {{ $prestamo->options }}</p>
+        <p><strong>Cliente:</strong> {{ $prestamo->name }}</p>
+        <p><strong>Cédula:</strong> {{ $prestamo->cc }}</p>
+        <p><strong>Valor Solicitado:</strong> ${{ number_format($prestamo->value, 2) }}</p>
           <p><strong>Descuento:</strong> {{ $prestamo->discount }}%</p>
           <p><strong>Propósito:</strong> {{ $prestamo->purpose }}</p>
           <p><strong>Empleado:</strong> {{ $prestamo->employee }}</p>
           <p><strong>Fecha:</strong> {{ $prestamo->date }}</p>
       </div>
     </div>
-  
+    
     <form action="{{ route('form.submit.admin', $prestamo->id) }}" method="POST">
+      <div class="title max">
+          <u>R.I.B LOGISTICAS S.A.S</u>
+      </div>
       @csrf
       <!-- Mostrar mensaje de éxito -->
       @if(session('success'))
@@ -49,49 +49,49 @@
         <div class="form-group-2 br">
           <div class="salary-info-section flx br box">
             <div class="label-input-group flx">
-              <label for="balance" class="balance-label">Saldo a cargo del Empleado $:</label>
-              <input type="number" id="balance" name="balance" value="{{ old('balance') }}" required>
-              @error('balance')
-                <div class="error-message">{{ $message }}</div>
-              @enderror
+              <label for="balance" class="balance-label">Saldo a cargo del Empleado:</label>
+              <input type="number" id="balance" name="balance" value="{{ old('balance') }}" placeholder="$" required>
             </div>
+            @error('balance')
+              <div class="error-message">{{ $message }}</div>
+            @enderror
             <div class="label-input-group flx">
               <label for="maturity" class="maturity-label">Vencimiento:</label>
-              <input type="text" id="maturity" name="maturity" value="{{ old('maturity') }}" required>
-              @error('maturity')
-                <div class="error-message">{{ $message }}</div>
-              @enderror
+              <input type="text" id="maturity" name="maturity" value="{{ old('maturity') }}" placeholder="Cuando vence..." required>
             </div>
+            @error('maturity')
+              <div class="error-message">{{ $message }}</div>
+            @enderror
             <div class="label-input-group flx">
-              <label for="payments" class="payments-label">Pagos quincenales $:</label>
-              <input type="number" id="payments" name="payments" value="{{ old('payments') }}" required>
-              @error('payments')
-                <div class="error-message">{{ $message }}</div>
-              @enderror
+              <label for="payments" class="payments-label">Pagos quincenales:</label>
+              <input type="number" id="payments" name="payments" value="{{ old('payments') }}" placeholder="$" required>
             </div>
+            @error('payments')
+              <div class="error-message">{{ $message }}</div>
+            @enderror
             <div class="label-input-group flx">
               <label for="entrydate" class="entrydate-label">Fecha de Entrada:</label>
               <input type="date" id="entrydate" name="entrydate" value="{{ old('entrydate') }}" required>
-              @error('entrydate')
-                <div class="error-message">{{ $message }}</div>
-              @enderror
             </div>
+            @error('entrydate')
+              <div class="error-message">{{ $message }}</div>
+            @enderror
             <div class="label-input-group flx">
               <label for="salary" class="salary-label">Salario $:</label>
-              <input type="number" id="salary" name="salary" value="{{ old('salary') }}" required>
-              @error('salary')
-                <div class="error-message">{{ $message }}</div>
-              @enderror
+              <input type="number" id="salary" name="salary" value="{{ old('salary') }}" placeholder="$" required>
             </div>
+            @error('salary')
+              <div class="error-message">{{ $message }}</div>
+            @enderror
   
             <div class="signature-date flx">
               <div class="date-report flx">
                 <label for="date" class="datesignature-label">Fecha</label>
                 <input type="date" id="date" name="date" value="{{ old('date') }}" required>
-                @error('date')
-                  <div class="error-message">{{ $message }}</div>
-                @enderror
               </div>
+              @error('date')
+                <div class="error-message">{{ $message }}</div>
+              @enderror
   
   
               <div class="responsible-signature-report flx">
@@ -125,7 +125,7 @@
               </div>
               <div class="signature-report flx">
                   <label for="signature" class="signature-label">Firma</label>
-                  <input type="text" class="max" id="signature" name="signature" value="{{ old('signature') }}" required>
+                  <input type="text" class="max" id="signature" name="signature" value="{{ old('signature') }}" placeholder="Firme aqui..." required>
                   @error('signature')
                     <div class="error-message">{{ $message }}</div>
                   @enderror
@@ -134,7 +134,7 @@
   
             <div class="label-input-group flx">
               <label for="approved-amount" class="approvedamount-label">Cantidad Aprobada $:</label>
-              <input type="number" id="approved-amount" name="approved_amount" value="{{ old('approved_amount') }}" required>
+              <input type="number" id="approved-amount" name="approved_amount" value="{{ old('approved_amount') }}" placeholder="No escriba si no se aprobó." required>
               @error('approved-amount')
                 <div class="error-message">{{ $message }}</div>
               @enderror
@@ -148,6 +148,7 @@
                 <select name="payment_frequency" value="{{ old('payment_frequency') }}">
                   <option value="quincenales">QUINCELANES</option>
                   <option value="mensuales">MENSUALES</option>
+                  <option value="no-aplica">NO APLICA</option>
                 </select>
                 @error('payment_frequency')
                   <div class="error-message">{{ $message }}</div>
@@ -168,7 +169,7 @@
   
           <div class="label-input-group flx">
             <label for="new-discounts" class="new-discounts-label">Nuevos decuentos:</label>
-            <input type="text" id="new-discounts" name="new_discounts" value="{{ old('new_discounts') }}" required>
+            <input type="text" id="new-discounts" name="new_discounts" value="{{ old('new_discounts') }}" placeholder="escriba..." required>
             @error('new_discount')
               <div class="error-message">{{ $message }}</div>
             @enderror
@@ -200,7 +201,7 @@
           </div>
           <div class="final-container-section flx br box">
             <label for="approved-by">APROBADO POR:</label>
-            <input type="text" id="input-approved" name="input_approved" value="{{ old('input_approved') }}">
+            <input type="text" id="input-approved" name="input_approved" value="{{ old('input_approved') }}" placeholder="Encargado que aprobó la solicitud" required>
             @error('input_approved')
               <div class="error-message">{{ $message }}</div>
             @enderror

@@ -2,14 +2,10 @@
     display: flex;
 }
 
-.title {
-    margin-left: 10%;
-}
-
 form {
-    min-width: 900px;
+    min-width: 800px;
     position: absolute;
-    margin: 5px auto 20px 30%;
+    margin: 5px auto 20px 400px;
 }
 
 
@@ -18,10 +14,10 @@ form {
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     padding: 20px; /* Espaciado interno */
-    max-width: 400px; /* Ancho máximo de la tarjeta */
+    max-width: 350px; /* Ancho máximo de la tarjeta */
     height: 500px;
     position: fixed; /* Mantener la tarjeta fija */
-    margin: 20px auto 20px 40px; /* Centrar la tarjeta */
+    margin: 55px auto 20px 40px; /* Centrar la tarjeta */
     font-family: Arial, sans-serif; /* Fuente */
     overflow: auto;  /* Permitir scroll si el contenido es demasiado */
 }
