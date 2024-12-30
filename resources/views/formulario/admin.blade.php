@@ -117,7 +117,7 @@
                 <label for="payment-status" class="payment-status-label">Estado del Pago:</label>
                 <select name="payment_status" id="payment-status" value="{{ old('payment_status') }}">
                   <option value="approved">APROBADO</option>
-                  <option value="no-aprovend">NO APROBADO</option>
+                  <option value="no-approved">NO APROBADO</option>
                 </select>
                 @error('payment_status')
                   <div class="error-message">{{ $message }}</div>

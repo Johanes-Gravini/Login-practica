@@ -28,7 +28,7 @@
 	
 			<label>
 				<span class="custom-checkbox">
-					@if( $admin->prestamo && $admin->prestamo->options == 'anticipo_arriendo_moto')
+					@if($admin->prestamo && $admin->prestamo->options == 'anticipo_arriendo_moto')
 						X
 					@endif
 				</span>
@@ -95,52 +95,53 @@
 		<div class="form-group-2">
 			<div class="balance-maturity-content">
 				<label for="balance" class="balance-label" id="balance-label-fl">Saldo a cargo del Empleado $:</label>
-				<input type="text" id="id-balance-fl" name="balance" required>
+				<input type="text" id="id-balance-fl" name="balance" value="{{ $admin->balance }}">
 
 				<label for="maturity" class="maturity-label" id="maturity-label-fl">Vencimiento:</label>
-				<input type="text" id="id-maturity-fl" name="maturity" required>
+				<input type="text" id="id-maturity-fl" name="maturity" value="{{ $admin->maturity }}">
 			</div>
 
 			<div class="payments-entrydate-content">
 				<label for="payments" class="payments-label" id="payments-label-fl">Pagos quincenales $:</label>
-				<input type="text" id="id-payments-fl" name="payments" required>
+				<input type="text" id="id-payments-fl" name="payments" value="{{ $admin->payments }}">
 
 				<label for="entrydate" class="entrydate-label" id="entrydate-label-fl">Fecha de Entrada:</label>
-				<input type="date" id="id-entrydate-fl" name="entrydate" required>
+				<input type="date" id="id-entrydate-fl" name="entrydate" value="{{ $admin->entrydate }}">
 			</div>
 
 			<div class="salary-container-content">
 				<label for="salary" class="salary-label" id="salary-label-fl">Salario $:</label>
-				<input type="text" id="id-salary-fl" name="salary" required>
+				<input type="text" id="id-salary-fl" name="salary" value="{{ $admin->salary }}">
 			</div>
 
-			<div class="responsible-date-content"> 
+			<div class="responsible-date-content">
+				<div id="id-responsible-report">{{ $admin->responsible_report }}</div>
 				<div class="responsible"> 
 					<label for="responsible" class="responsible-report">Responsable del Informe</label>
 				</div>
 				<div class="date">
 					<label for="date" class="date-responsible-label" id="date-responsible-label-fl">Fecha</label>
-					<input type="date" id="id-date-fl" name="date" required>
+					<input type="date" id="id-date-fl" name="date" value="{{ $admin->date }}">
 				</div>
 			</div>
 
 			<div class="status-payments-content">
 				<div class="approved">
 					<label for="approved-label" id="approved-label-fl">APROBADO:</label>
-					<input type="text" id="id-approved-fl-x">
+					<input type="text" id="id-approved-fl-x" value="{{ $admin->prestamo && $admin->payment_status == 'approved' ? 'X' : ''  }}" readonly>
 				</div>
 				<div class="no-approved">
 					<label for="noapproved-label" id="noapproved-label-fl">NO APROBADO:</label>
-					<input type="text" id="id-noapproved-fl-x">
+					<input type="text" id="id-noapproved-fl-x" value="{{ $admin->prestamo && $admin->payment_status == 'no-approved' ? 'X' : '' }}" readonly>
 				</div>
 				<div class="signature">
 					<label for="approved-label" id="approvedfirma-label-fl">FIRMA:</label>
-					<input type="text" id="id-signature-fl">
+					<input type="text" id="id-signature-fl" value="{{ $admin->signature }}">
 				</div>
 
 				<div class="approved-amount-content">
 					<label for="approved-amount" id="approvedamount-label-fl">CANTIDAD APROBADA:</label>
-					<input type="text" id="id-approvedamount-fl">
+					<input type="text" id="id-approvedamount-fl" value="{{ $admin->approved_amount }}">
 				</div>
 			</div>
 
@@ -151,25 +152,25 @@
 			<div class="payment-frequency-content">
 				<div class="quincenales">
 					<label for="quincenales-label" id="quincenales-label-fl">QUINCENALES:</label>
-					<input type="text" id="id-quincenales-fl-x">
+					<input type="text" id="id-quincenales-fl-x" value="{{ $admin->prestamo && $admin->payment_frequency == 'quincenales' ? 'X' : '' }}" readonly>
 				</div>
 				<div class="no-approved">
 					<label for="mensuales-label" id="mensuales-label-fl">MENSUALES:</label>
-					<input type="text" id="id-mensuales-fl-x">
+					<input type="text" id="id-mensuales-fl-x" value="{{ $admin->prestamo && $admin->payment_frequency == 'mensuales' ? 'X' : '' }}" readonly>
 				</div>
 				<div class="from">
 					<label for="from-label" id="from-label-fl">A PARTIR DE:</label>
-					<input type="text" id="id-from-fl">
+					<input type="text" id="id-from-fl" value="{{ $admin->from }}">
 				</div>
 			</div>
 
-			<div class="new-discounts">
-				<label for="new-discounts">
+			<div class="new-discounts-content">
+				<label for="new-discounts" id="fl">
 					<strong>
 						NUEVOS DESCUENTOS:
 					</strong> 
 				</label>
-				<input type="text" id="id-newdiscounts">
+				<input type="text" id="id-newdiscounts" value="{{ $admin->new_discounts }}">
 			</div>
 
 			<!-- tabla de 3 columnas 4 filas -->
@@ -182,27 +183,27 @@
                 </tr>
                 <tr>
                   <th class="table-header-title">COMFENALCO</th>
-                  <th class="table-header">$<input type="text" id="input-table-22" name="input-table"></th>
-                  <th class="table-header"><input type="text" id="input-table-23" name="input-table"></th>
+                  <th class="table-header">$<input type="text" id="input-table-22" name="input-table" value="{{ $admin->comfenalco_mensual }}"></th>
+                  <th class="table-header">$<input type="text" id="input-table-23" name="input-table" value="{{ $admin->comfenalco_saldo }}"></th>
                 </tr>
                 <tr>
                   <th class="table-header-title">COMBARRANQUILLA</th>
-                  <th class="table-header">$<input type="text" id="input-table-32" name="input-table"></th>
-                  <th class="table-header"><input type="text" id="input-table-33" name="input-table"></th>
+                  <th class="table-header">$<input type="text" id="input-table-32" name="input-table" value="{{ $admin->combarranquilla_mensual }}"></th>
+                  <th class="table-header">$<input type="text" id="input-table-33" name="input-table" value="{{ $admin->combarranquilla_saldo }}"></th>
                 </tr>
                 <tr>
                   <th class="table-header-title">OTROS</th>
-                  <th class="table-header">$<input type="text" id="input-table-42" name="input-table"></th>
-                  <th class="table-header"><input type="text" id="input-table-43" name="input-table"></th>
+                  <th class="table-header">$<input type="text" id="input-table-42" name="input-table" value="{{ $admin->otros_mensual }}"></th>
+                  <th class="table-header">$<input type="text" id="input-table-43" name="input-table" value="{{ $admin->otros_saldo }}"></th>
                 </tr>
               </table>
             </div>
 
 			<div class="final-container-content">
               <label for="approved-by" id="approvedby-label-fl">APROBADO POR:</label>
-              <input type="text" id="input-approved-fl">
+              <input type="text" id="input-approved-fl" value="{{ $admin->input_approved }}">
               <label for="date-approved" id="dateapproved-label-fl">FECHA:</label>
-              <input type="date" id="input-data-approved-fl">
+              <input type="date" id="input-data-approved-fl" value="{{ $admin->date_approved }}">
             </div> 
 		</div>
 	</div>
