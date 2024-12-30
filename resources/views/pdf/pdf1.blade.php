@@ -11,39 +11,40 @@
 	<div class="title">
 		<u>R.I.B LOGISTICAS S.A.S</u>
 	</div>
+	
 	<div class="request-info-section">
 		<!-- 3 CHECKBOX DEL INICIO -->
 		<div class="checkbox-container">
 			<label>
 				<span class="custom-checkbox">
-					@if($prestamo->options == 'solicitud_prestamo')
+					@if($admin->prestamo && $admin->prestamo->options == 'solicitud_prestamo')
 						X
 					@endif
 				</span>
 				<input type="checkbox" id="option1" name="options" value="value1"
-					@if($prestamo->options == 'solicitud_prestamo') checked @endif>
+					@if($admin->prestamo && $admin->prestamo->options == 'solicitud_prestamo') checked @endif>
 				<strong>SOLICITUD DE PRESTAMO</strong>
 			</label>
 	
 			<label>
 				<span class="custom-checkbox">
-					@if($prestamo->options == 'anticipo_arriendo_moto')
+					@if( $admin->prestamo && $admin->prestamo->options == 'anticipo_arriendo_moto')
 						X
 					@endif
 				</span>
 				<input type="checkbox" id="option2" name="options" value="value2"
-					@if($prestamo->options == 'anticipo_arriendo_moto') checked @endif>
+					@if($admin->prestamo &&  $admin->prestamo->options == 'anticipo_arriendo_moto') checked @endif>
 				<strong>ANTICIPO DE ARRIENDO DE MOTO</strong>
 			</label>
 	
 			<label>
 				<span class="custom-checkbox">
-					@if($prestamo->options == 'anticipo_sueldo')
+					@if($admin->prestamo &&  $admin->prestamo->options == 'anticipo_sueldo')
 						X
 					@endif
 				</span>
 				<input type="checkbox" id="option3" name="options" value="value3"
-					@if($prestamo->options == 'anticipo_sueldo') checked @endif>
+					@if($admin->prestamo &&  $admin->prestamo->options == 'anticipo_sueldo') checked @endif>
 				<strong>ANTICIPO SUELDO</strong>
 			</label>
 		</div>
@@ -52,23 +53,23 @@
 		<div class="form-group">
 			<div class="personal-data">
 				<label for="name" class="name-label" id="name-label-fl">NOMBRE:</label>
-				<input type="text" id="id-name-fl" name="name" value="{{ $prestamo->name }}">
+				<input type="text" id="id-name-fl" name="name" value="{{ $admin->prestamo->name }}">
 
 				<label for="cc" class="cc-label" id="cc-fl">C.C:</label>
-				<input type="text" id="cc" name="cc" value="{{ $prestamo->cc }}">
+				<input type="text" id="cc" name="cc" value="{{ $admin->prestamo->cc }}">
 			</div>
 
 			<div class="value-discount">
 				<label for="value" class="value-label" id="value-label-fl">VALOR SOLICITUADO:</label>
-				<input type="text" id="id-value-fl" name="value" value="{{ $prestamo->value }}">
+				<input type="text" id="id-value-fl" name="value" value="{{ $admin->prestamo->value }}">
 
 				<label for="discount" class="discount-label" id="discount-label-fl">DESC. SUGERIDO:</label>
-				<input type="text" id="id-discount-fl" name="discount" value="{{ $prestamo->discount }}%">
+				<input type="text" id="id-discount-fl" name="discount" value="{{ $admin->prestamo->discount }}%">
 			</div>
 
 			<div class="purpose">
 				<label for="purpose" class="purpose-label">PROPOSITO:</label>
-				<textarea id="purpose" name="purpose" rows="2">{{ $prestamo->purpose }}</textarea>
+				<textarea id="purpose" name="purpose" rows="2">{{ $admin->prestamo->purpose }}</textarea>
 			</div>
 
 			<div class="authorize">
@@ -79,10 +80,10 @@
 
 			<div class="personal-data">
 				<label for="employee" class="employee-label" id="employee-label-fl">EL EMPLEADO:</label>
-				<input type="text" id="id-employee-fl" name="employee" value="{{ $prestamo->employee }}">
+				<input type="text" id="id-employee-fl" name="employee" value="{{ $admin->prestamo->employee }}">
 
 				<label for="date" class="date-label" id="date-label-fl">FECHA:</label>
-				<input type="date" id="id-date-fl" name="date" value="{{ $prestamo->date }}">
+				<input type="date" id="id-date-fl" name="date" value="{{ $admin->prestamo->date }}">
 			</div>
 		</div>
 

@@ -22,11 +22,17 @@ class PdfController extends Controller
 
     public function pdf($id)
     {
-        // Obtener los registro de la tabla 'prestamos'
-        $prestamo = Prestamo::findOrFail($id);
+        // Obtener elr esgistro de la tabla 'prestamos_admins' que está realcionada con prestamos
+        $admin = PrestamosAdmin::with('prestamo')->findOrFail($id);
 
+        // Verificar si el préstamo está asociado
+        if (!$admin->prestamo) {
+            // Manejar el caso donde no hay un préstamo asociado
+            return redirect()->back()->with('error', 'No se encontró el préstamo asociado.');
+        }
+        
         // Carga la vista y apsa los datos
-        $pdf = Pdf::loadView('pdf.pdf1', ['prestamo' => $prestamo]);
+        $pdf = Pdf::loadView('pdf.pdf1', ['admin' => $admin]);
 
         return $pdf->stream('prestamos.pdf');
     }
